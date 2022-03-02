@@ -26,7 +26,7 @@ jobs:
         uses: zaproxy/action-full-scan@v0.3.0
         with:
           target: ${{ env.URL }}
-          allow_issue_writing: false # To enable when the site moves to prod
+          allow_issue_writing: false # NOTE: To enable when the site moves to prod.
           token: ${{ secrets.GITHUB_TOKEN }}
-          fail_action: true
+          fail_action: false # NOTE: Change to true when released to prod.
           cmd_options: '-a -j'
