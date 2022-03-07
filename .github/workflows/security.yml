@@ -1,0 +1,32 @@
+# This is a GitHub workflow to run a security scan on the website.
+
+name: Security
+
+env:
+  URL: 'https://devilsec.github.io/website/'
+
+on:
+  push:
+    branches: [main]
+  page_build:
+    branch: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: OWASP Zed Attack Proxy scan.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.3.0
+        with:
+          target: ${{ env.URL }}
+          allow_issue_writing: false # NOTE: To enable when the site moves to prod.
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_action: false # NOTE: Change to true when released to prod.
+          cmd_options: '-a -j'
