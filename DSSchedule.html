@@ -86,7 +86,9 @@
             <div style="text-align: center;">
                 <h1 class="display-1">Event Schedule</h1>
             </div>
-            <div class="row content text-left" style="height: 100%;">
+            <!-- Have events be dynamically loaded from a calendar URL (which must be public obviously) and then load them in the respective format. -->
+            <!-- If there is no upcoming event, either at all or for a particular category, just show "No upcoming [category] as of this time" -->
+            <div class="content text-left" style="height: 100%;">
                 <h2 class="display-4">Upcoming Events:</h2>
                 <div class="container-fluid text-center">
                     <div class="col-md-3 boxes">
@@ -117,7 +119,145 @@
                         <h4>Location: Test house</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
                     </div>
-
+                </div>
+                <hr/> <!-- Increase and improve spacing to make sure there is a clear distinction between the above upcoming presentations and these sections -->
+                <div class="container-fluid text-center">
+                    <div class="col-md-3">
+                        <h2>Presentations</h2>
+                        <p>Upcoming presentations on a particular topic followed by a workshop.</p>
+                        <div class="row row-cols-1 boxes">
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h2>Competitions</h2>
+                        <p>Upcoming competitions and CTFs</p>
+                        <div class="row row-cols-1 boxes">
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h2>Guest Speakers</h2>
+                        <p>Upcoming guest speaker presentations</p>
+                        <div class="row row-cols-1 boxes">
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h2>Lorem</h2>
+                        <p>Upcoming lorem ipsum</p>
+                        <div class="row row-cols-1 boxes">
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                            <div class="col">
+                                <h3>Lorem Ipsum</h3>
+                                <h4>Date: February 30 0000</h4>
+                                <h4>Time: 00:00 - 19:00 MST</h4>
+                                <h4>Location: Test house</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in lorem libero. Donec volutpat tempus volutpat. Morbi ipsum quam, facilisis non tempus eget, molestie ac justo.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
