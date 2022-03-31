@@ -9,16 +9,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-    /* Remove the navbar's default margin-bottom and rounded borders 
-        Also make the navigation bar sticky  */
-    .navbar {
-        margin-bottom: 0;
-        border-radius: 0;
-        position: fixed;
-        right: 0;
-        left: 0;
-        z-index: 999;
-    }
 
     html, body {
         margin: 0;
@@ -28,26 +18,6 @@
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 8px;
-    }
-
-    #footer {
-        bottom:0;
-        left:0;
-        width: 100%;
-    }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
@@ -73,14 +43,14 @@
       border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
       color: white;
       margin: 20px;
-      box-shadow: 20px 20px #FFC627;
+      box-shadow: 0px 0px 10px 5px #ffc627;
       transition: all .4s ease;
     }
 
     .boxes:hover
     {
-      border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
-      box-shadow: 10px 10px #8c1d40;
+      border-radius: 1% 1% 1% 1% / 1% 1% 1% 1% ;
+      box-shadow: 0px 0px 20px 20px #8c1d40;
     }
 
     .grid2x2 {
@@ -91,6 +61,7 @@
     }
 
     .grid2x2 > div {
+      height: 300px;
       display: flex; 
       flex-basis: calc(50% - 40px);  
       justify-content: center;
@@ -103,35 +74,19 @@
       flex-direction: row;
     }
   </style>
+
+<script>  
+</script> 
+
 </head>
 <body style="background-color: #202020;">
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a href="HomePage.html"><img  src="pictures/DevilSecLogo.png"  height="50" width="50"/></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="HomePage.html">Home</a></li>
-        <li><a href="GetConnected.html">Get Connected</a></li>
-        <li><a href="ClubRecordings.html">Club Recordings</a></li>
-        <li><a href="Resources.html">Resources</a></li>
-        <li><a href="DSSchedule.html">Schedule/Calendar</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header>
+  <div data-includeHTML="Header.html"></div>
+</header>
+<main style="margin-bottom:15px;">
+<div class="container-fluid text-center">    
   
-<div class="container-fluid text-center" style="height: 100%; padding-top: 50px; padding-bottom: 60px;">    
-  <div class="row content" style="height: 100%;">
-    <div class="col-sm-14 text-middle"> 
-      <div class="container" style="margin-bottom: 15px;">
+      <div class="container">
         <div class="p-5 my-4 bg-light rounded-3">
           <h1 class="style2" style="font-size:150px;">DevilSec</h1>
           <p class="lead">Libero non porta mus magna? Cras faucibus penatibus sollicitudin felis ac tortor eget congue risus. Adipiscing faucibus id non et himenaeos dolor! Donec, ante consectetur nascetur suscipit ante quam natoque libero. Fringilla gravida.</p>
@@ -168,10 +123,17 @@
         </div>
       </div>
     </div>
+  </main>
+  <footer>
+    <div data-includeHTML="Footer.html"></div>
 
-<footer id="footer" class="container-fluid text-center">
-  <p>&copy; DevilSec 2022</p>
-</footer>
-
+  </footer>
+  <script>
+    $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {                
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
+</script>
 </body>
 </html>
