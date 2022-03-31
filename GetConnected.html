@@ -60,17 +60,9 @@
       .row.content {height:auto;} 
     }
 
-    .div-highlight {
+    .div-highlight:hover {
         border-radius: 5px;
-    }
-    .div-highlight2 {
-        border-radius: 5px;
-    }
-    .div-highlight3 {
-        border-radius: 5px;
-    }
-    .div-highlight4 {
-        border-radius: 5px;
+        background: #FFC627;
     }
 
     .center {
@@ -104,79 +96,38 @@
     </div>
   </div>
 </nav>
-<script> 
-    function mouseHover(){
-        var color = ["#FFC627"];
-        
-        //divhighlight1
-       document.querySelector(".div-highlight").addEventListener("mouseover", function(){
-           document.querySelector(".div-highlight").style.background = color;})
-
-        document.querySelector(".div-highlight").addEventListener("mouseout", function(){
-           document.querySelector(".div-highlight").style.background = null;})
-        
-        //divhighlight2
-       document.querySelector(".div-highlight2").addEventListener("mouseover", function(){
-           document.querySelector(".div-highlight2").style.background = color;})
-
-        document.querySelector(".div-highlight2").addEventListener("mouseout", function(){
-           document.querySelector(".div-highlight2").style.background = null;})
-
-        //divhighlight3
-       document.querySelector(".div-highlight3").addEventListener("mouseover", function(){
-           document.querySelector(".div-highlight3").style.background = color;})
-
-        document.querySelector(".div-highlight3").addEventListener("mouseout", function(){
-           document.querySelector(".div-highlight3").style.background = null;})
-
-        //divhighlight4
-       document.querySelector(".div-highlight4").addEventListener("mouseover", function(){
-           document.querySelector(".div-highlight4").style.background = color;})
-
-        document.querySelector(".div-highlight4").addEventListener("mouseout", function(){
-           document.querySelector(".div-highlight4").style.background = null;}) 
-    }
-</script>
 
 <div class="container-fluid text-center" style="padding-top: 70px; padding-bottom: 60px;">    
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">  
         <a href="https://discord.gg/JFq44mJ" target="_blank">
-        <div class="div-highlight">
-            <span onmouseover="mouseHover()" onmouseout="mouseHover()">
+            <div class="div-highlight">
             <img src="pictures/discord.svg" alt="Join our Discord!" style="width:50px; height:50px;"></img>
                 <p>Join our Discord server!</p>
-            </span>
-        </div>
+            </div>
         </a>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"> 
         <a href="https://www.youtube.com/channel/UCMa2NO8KJ4DaTQ1i507nVcQ" target="_blank">
-        <div class="div-highlight2">
-            <span onmouseover="mouseHover()" onmouseout="mouseHover()">
+            <div class="div-highlight">
             <img src="pictures/youtube.svg" alt="Watch us on YouTube!" style="width:50px; height:50px;"></img>
                 <p>Watch our YouTube videos!</p>
-            </span>
-        </div>
+            </div> 
         </a>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <a href="https://twitter.com/devilsecasu" target="_blank">
-        <div class="div-highlight3">
-            <span onmouseover="mouseHover()" onmouseout="mouseHover()">
+            <div class="div-highlight">
             <img src="pictures/twitter.svg" alt="Read our Tweets!" style="width:50px; height:50px;"></img>
                 <p>Follow us on Twitter!</p>
-            </span>
-        </div>
+            </div>
         </a>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <a href="https://www.twitch.tv/devilsec" target="_blank">
-        <div class="div-highlight4">
-            <span onmouseover="mouseHover()" onmouseout="mouseHover()">
-            <img src="pictures/twitch.svg" alt="See us live on Twitch!" style="width:50px; height:50px;"></img>
+            <div class="div-highlight">
+            <img src="pictures/twitch.svg" alt="See us live on Twitch!" style="width=50px; height:50px;"></img>
                 <p>See us live on Twitch!</p>
-            </span>
-        </div>
+            </div>  
         </a>
     </div>
 </div>
