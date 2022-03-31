@@ -60,10 +60,18 @@
 
     .div-highlight {
         border-radius: 5px;
+        width: fit-content;
+        height: fit-content;
         background: #FFC627;
     }
-
-    p:hover {
+    b {
+        width: fit-content;
+        height: fit-content;
+        color: black;
+    }
+    b:hover {
+        width: fit-content;
+        height: fit-content;
         color: #8C1D40;
         background: #FFC627;
     }
@@ -94,53 +102,64 @@
     </nav>
   
 <div class="container-fluid text-center" style="height: 100%; padding-top: 50px; padding-bottom: 60px;">    
-    <div class="col-sm-10 text-center"> 
+    <div class="col-sm-10 text-center"></div>
       <h1>Getting Started</h1>
-      <b>Cybersecurity encompasses so many areas that it's hard to know where to start. Here are some of our recommendations for learning and practicing the basics when it comes to hacking the web and beyond!</b>
+      <h4>Cybersecurity encompasses so many areas that it's hard to know where to start. Here are some of our recommendations for learning and practicing the basics when it comes to hacking the web and beyond!</h4>
       <hr>
-      <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="col-sm-6 col-md-6 col-lg-6 text-left">
+          <div class="row">
             <div class="div-highlight">
             <h3>Where to practice</h3>
             </div>
-            <a href="https://overthewire.org/wargames/bandit/"><p>Over the Wire</p></a>
-            <a href="https://www.hackthebox.com/"><p>Hack the Box</p></a>
-            <a href="https://portswigger.net/"><p>Port Swigger</p></a>
-            <a href="https://tryhackme.com/"><p>Try Hack Me</p></a>
-            <i>And for our blue team friends...</i>
-            <a href="https://cyberdefenders.org/"><p>Cyber Defenders</p></a>
-            <a href="https://blueteamlabs.online/"><p>Blue Team Labs</p></a>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-6">
+            <a href="https://overthewire.org/wargames/bandit/" target="_blank"><b>Over the Wire</b></a><p>A free series of wargames starting with "Bandit" that help you learn and practice security concepts in successive stages that build on each other.</p>
+            <a href="https://www.hackthebox.com/" target="_blank"><b>Hack the Box</b></a><p>A challenging platform that offers free and vulnerable machines to scan, explore, and hack in a CTF style.</p>
+            <a href="https://portswigger.net/" target="_blank"><b>Port Swigger</b></a><p>A free web security based platform that includes a web academy to learn almost every concept regarding website hacking and practice in vulnerable labs. Burp Suite is the main tool used for these labs, and there is a free community edition for learning purposes.</p>
+            <a href="https://tryhackme.com/" target="_blank"><b>Try Hack Me</b></a><p>Free training platform that has individual rooms to learn each security concept as it relates to web, cryptography, Windows, Linux, and software like Wireshark, Hydra, and Nessus. Similar to Hack the Box, but it is considered easier and better for beginners.</p>
+            <a href="https://cyberdefenders.org/" target="_blank"><b>Cyber Defenders</b></a><p>A training platform with a focus on defending networks from malicious attacks.</p> 
+            <a href="https://blueteamlabs.online/" target="_blank"><b>Blue Team Labs</b></a><p>A similar platform to train in defensive techniques related to security investigations.</p>
+          </div>
+          <div class="row"> 
             <div class="div-highlight">
             <h3>Where to learn Linux</h3>
             </div>
-            <a href="https://linuxjourney.com/"><p>Linux Journey</p></a>
-            <a href="https://www.linuxcommand.org/"><p>Linux Command</p></a>
-        </div></div>
-      <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6">
+            <a href="https://linuxjourney.com/" target="_blank"><b>Linux Journey</b></a><p>An easy-to-follow guide on everything you should know about Linux that comes with helpful examples to reinforce your knowledge.</p>
+            <a href="https://www.linuxcommand.org/" target="_blank"><b>Linux Command</b></a><p>Focuses mainly on terminal commands, shell scripts, and learning to get a handle on optimizing your experience using Linux.</p>
+          </div>
+          <div class="row">
+            <div class="div-highlight">
+            <h3>Guides</h3>
+            </div>
+            <i> coming soon </i>
+          </div>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6 text-left">
+          <div class="row">
             <div class="div-highlight">
             <h3>Stay in the know</h3>
             </div>
-            <a href="https://owasp.org/Top10/"><p>OWASP Top Ten</p></a>
-            <a href="https://krebsonsecurity.com/"><p>Krebs on Security</p></a>
-            <a href="https://blog.malwarebytes.com/"><p>Malwarebytes Blog</p></a>
-            <a href="https://www.bleepingcomputer.com/"><p>Bleeping Computer</p></a>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-6">
+            <a href="https://owasp.org/Top10/" target="_blank"><b>OWASP Top Ten</b></a><p>The top 10 categories of vulnerabilities found on websites. This is an updated document used by organizations to assess risks and implement changes to prevent these types of vulnerabilities from being found and exploited.</p> 
+            <a href="https://krebsonsecurity.com/" target="_blank"><b>Krebs on Security</b></a><p>A popular security focused blog by Brian Krebs. Frequently updated with detailed news of hacks and information disclosures and leaks.</p>
+            <a href="https://blog.malwarebytes.com/" target="_blank"><b>Malwarebytes Blog</b></a><p>Good general information blog about all things related to cybersecurity, reports, privacy, and news on software patches.</p>
+            <a href="https://www.bleepingcomputer.com/" target="_blank"><b>Bleeping Computer</b></a><p>General computing blog that includes cybersecurity, tutorials, deals on paid training platforms and software, and forums.</p>
+          </div>
+          <div class="row">
             <div class="div-highlight">
             <h3>Recommended reading</h3>
             </div>
-            <a href="https://dfirmadness.com/getting-into-infosec/the-five-pillars/"><p>The Five Pillars</p></a>
-            <a href="http://www.catb.org/esr/faqs/hacker-howto.html"><p>How to become a hacker</p></a>
-        </div>
+            <a href="https://dfirmadness.com/getting-into-infosec/the-five-pillars/" target="_blank"><b>The Five Pillars</b></a><p>A detailed layout of the infosec field along with myriad resources of learning material and clear explanations of the different roles available in the industry.</p> 
+            <a href="http://www.catb.org/esr/faqs/hacker-howto.html" target="_blank"><b>How to become a hacker</b></a><p>An older but consistently revised document on getting into the "hacker" mindset and learning necessary skills to contribute to solving problems.</p>
+          </div>
+          <div class="row">
+            <div class="div-highlight">
+            <h3>Tools</h3>
+            </div>
+          <i>coming soon</i>
+          </div>
       </div>
-    </div>
 </div>
 
 <footer id="footer" class="container-fluid text-center">
-  <p>&#169; DevilSec 2022</p>
+  <b>&#169; DevilSec 2022</b>
 </footer>
 
 </body>
