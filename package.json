@@ -1,0 +1,29 @@
+{
+    "name": "devilsec-website",
+    "version": "0.7.0",
+    "description": "DevilSec's website.",
+    "author": "DevilSec",
+    "license": "none",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/devilsec/website.git"
+    },
+    "bugs": {
+        "url": "https://github.com/devilsec/website/issues"
+    },
+    "homepage": "https://github.com/devilsec/website",
+    "scripts": {
+        "css-compile": "sass --load-path=node_modules --style=compressed --source-map scss:assets/scss",
+        "css-lint": "stylelint scss/",
+        "css-prefix": "postcss --replace assets/css/starter.css --use autoprefixer --map",
+        "css-purge": "purgecss --keyframes --css assets/css/starter.css --content index.html \"node_modules/bootstrap/js/dist/{util,modal}.js\" --output assets/css/",
+        "css": "npm-run-all css-compile css-prefix",
+        "lint": "npm run css-list",
+        "build": "npm run css",
+        "clean-build": "npm run css-purge css",
+        "server": "serve --listen 8080",
+        "watch": "nodemon -e html,scss -x \"npm run css\"",
+        "start": "npm-run-all --parallel watch server",
+        "test": "npm run lint & npm run css"
+    }
+}
