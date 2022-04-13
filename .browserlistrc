@@ -1,0 +1,10 @@
+# browserlist
+
+>=1%
+last 2 major version
+not dead
+Chrome >=80
+Firefox >=72
+Opera >=66
+Edge >= 79
+Safari >= 13
