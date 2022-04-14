@@ -65,6 +65,6 @@ module.exports={
                 viewport: 'width=device-width, initial-scale=1',
                 charset: 'utf-8'
             }
-        }).concat(multipleHtmlPlugins)
-    ]
+        })
+    ].concat(multipleHtmlPlugins)
 }
