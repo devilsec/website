@@ -33,6 +33,7 @@
         "bootstrap-icons": "^1.8.1",
         "font-awesome": "^4.7.0",
         "jquery": "^3.6.0",
+        "lit": "^2.2.2",
         "simple-icons": "^6.18.0",
         "stylelint-config-twbs-bootstrap": "^3.0.1",
         "webpack": "^5.72.0"
