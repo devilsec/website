@@ -45,7 +45,7 @@ module.exports={
                             }
                         }
                     },
-                    {loader: 'saas-loader'}
+                    {loader: 'sass-loader'}
                 ]
             },
             {
