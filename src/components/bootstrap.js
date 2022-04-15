@@ -1,4 +1,4 @@
-import LitElement from 'lit';
+import {LitElement} from 'lit';
 import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
 /**

@@ -5,28 +5,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 let files=[];
 fs.readdirSync('./src/pages/').forEach(file => {
     if (path.extname(file)=='.html'){
-        files.push(file);
+        files.push(file.split('.')[0]);
     }
 });
 
 let multipleHtmlPlugins=files.map(file => {
     return new HtmlWebpackPlugin({
-        template: `./src/pages/${file.name}.html`,
-        filemame: `./dist/${file.name}.html`,
+        template: `./src/pages/${file}.html`,
+        filemame: `${file}.html`,
         favicon: './src/assets/img/favicon.ico',
+        chunks: ['main', `${file}`],
         meta: {
             viewport: 'width=device-width, initial-scale=1',
-            charset: 'utf-8'
         }
     })
-})
+});
 
 module.exports={
-    entry: './src/index.js',
+    entry: {
+        main: './src/components/header.js'
+    },
     mode: 'development',
     output:{
         path: path.resolve(__dirname, './dist/'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [
@@ -60,10 +62,11 @@ module.exports={
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
+            filename: 'index.html',
             favicon: './src/assets/img/favicon.ico',
+            chunks: ['main'],
             meta: {
                 viewport: 'width=device-width, initial-scale=1',
-                charset: 'utf-8'
             }
         })
     ].concat(multipleHtmlPlugins)

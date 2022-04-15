@@ -1,5 +1,5 @@
-import BaseElement from './bootstrap.js';
-import html from 'lit';
+import {BaseElement} from './bootstrap.js';
+import {html} from 'lit';
 
 export class Header extends BaseElement{
     render(){
