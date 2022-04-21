@@ -3,7 +3,9 @@ const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-let entryPoints = {};
+let entryPoints = {
+    main: ['./src/main.js', './src/assets/scss/main.scss']
+};
 
 function generateEntryPoints(name){
     let entries=[];
@@ -25,7 +27,6 @@ function generateHTML(){
     return htmlPages.map(item => {
         const name=item.split('.')[0]
         if(name=='index'){
-            entryPoints['main']='./src/index.js';
             return new HtmlWebpackPlugin({
                 template: './src/index.html',
                 filename: 'index.html',
