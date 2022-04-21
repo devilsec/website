@@ -26,6 +26,7 @@ function generateHTML(){
     const htmlPages=pages.filter(page => path.extname(page)=='.html');
     return htmlPages.map(item => {
         const name=item.split('.')[0]
+        generateEntryPoints(name);
         if(name=='index'){
             return new HtmlWebpackPlugin({
                 template: './src/index.html',
@@ -37,7 +38,6 @@ function generateHTML(){
                 }
             })
         }
-        generateEntryPoints(name);
         return new HtmlWebpackPlugin({
             filename: `${name}.html`,
             template: `./src/pages/${name}.html`,
