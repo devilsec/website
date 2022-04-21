@@ -1,2 +1,2 @@
 import 'bootstrap';
-import './components/core.js';
+import './components/core';

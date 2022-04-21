@@ -1,9 +1,9 @@
-import {BaseElement} from './bootstrap.js';
-import {html} from 'lit';
+import { html } from 'lit';
+import { BaseElement } from './bootstrap.js';
 
-export class Header extends BaseElement{
-    render(){
-        return html`
+export class Header extends BaseElement {
+  render() {
+    return html`
             <div class="sticky">
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
@@ -28,7 +28,7 @@ export class Header extends BaseElement{
                 </nav>
             </div>
         `;
-    }
+  }
 }
 
 customElements.define('main-header', Header);

@@ -3,7 +3,6 @@
     "parserOptions":{
         "requireConfigFile": false
     },
-    "extends": ["airbnb"],
     "rules":{
 
     }
