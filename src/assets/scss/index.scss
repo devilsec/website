@@ -1,63 +1,62 @@
-html, body {
-    margin: 0;
-    height: 100%;
-    color: white;
+html,
+body {
+  margin: 0;
+  height: 100%;
+  color: white;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 450px}
+.row.content { height: 450px; }
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
-    .sidenav {
-        height: auto;
-        padding: 15px;
-    }
-    .row.content {height:auto;}
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content { height: auto; }
 }
 
-.style2
-{
-    margin: 0 auto;
-    color: #FFC627;
+.style2 {
+  margin: 0 auto;
+  color: #ffc627;
 }
 
 .container {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
-.boxes{
-    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
-    color: white;
-    margin: 20px;
-    box-shadow: 0px 0px 10px 5px #ffc627;
-    transition: all .4s ease;
+.boxes {
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  color: white;
+  margin: 20px;
+  box-shadow: 0 0 10px 5px #ffc627;
+  transition: all 0.4s ease;
 }
 
-.boxes:hover
-{
-    border-radius: 1% 1% 1% 1% / 1% 1% 1% 1% ;
-    box-shadow: 0px 0px 20px 20px #8c1d40;
+.boxes:hover {
+  border-radius: 1% 1% 1% 1% / 1% 1% 1% 1%;
+  box-shadow: 0 0 20px 20px #8c1d40;
 }
 
 .grid2x2 {
-    min-height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .grid2x2 > div {
-    height: 300px;
-    display: flex;
-    flex-basis: calc(50% - 40px);
-    justify-content: center;
-    flex-direction: column;
+  height: 300px;
+  display: flex;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: column;
 }
 
 .grid2x2 > div > div {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
