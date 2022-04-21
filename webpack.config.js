@@ -32,7 +32,7 @@ function generateHTML(){
                 template: './src/index.html',
                 filename: 'index.html',
                 favicon: './src/assets/img/favicon.ico',
-                chunks: ['main'],
+                chunks: ['main', 'index'],
                 meta: {
                     viewport: 'width=device-width, initial-scale=1',
                 }
