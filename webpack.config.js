@@ -1,7 +1,7 @@
 const path=require('path');
 const fs = require('fs');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin=require('eslint-webpack-plugin');
 
 let entryPoints = {
     main: ['./src/main.js', './src/assets/scss/main.scss']
@@ -94,5 +94,6 @@ module.exports={
         ]
     },
     plugins: [
+        new ESLintPlugin()
     ].concat(generatedHTML)
 }
