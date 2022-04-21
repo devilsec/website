@@ -11,4 +11,4 @@ export class Footer extends BaseElement{
     }
 }
 
-customElements.define('footer', Footer);
+customElements.define('main-footer', Footer);

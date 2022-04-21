@@ -31,4 +31,4 @@ export class Header extends BaseElement{
     }
 }
 
-customElements.define('header', Header);
+customElements.define('main-header', Header);
