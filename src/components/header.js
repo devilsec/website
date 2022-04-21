@@ -13,7 +13,7 @@ export class Header extends BaseElement{
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         </button>
-                        <a href="HomePage.html"><img  src="pictures/DevilSecLogo.png"  height="50" width="50"/></a>
+                        <a href="HomePage.html"></a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
