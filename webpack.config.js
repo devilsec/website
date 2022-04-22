@@ -1,4 +1,4 @@
-const path=require('path');
+const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin=require('eslint-webpack-plugin');
@@ -20,12 +20,26 @@ function generateEntryPoints(name){
   }
 }
 
+function getPages(dirPath, pages){
+  let files=fs.readdirSync(dirPath);
+  pages=pages || []
+  files.forEach(function(file){
+    if(fs.statSync(dirPath+'/'+file).isDirectory()){
+      pages=getPages(dirPath+'/'+file, pages);
+    }
+    else{
+      pages.push(path.join(__dirname, dirPath, '/', file));
+    }
+  })
+  return pages;
+}
+
 function generateHTML(){
-  const pages=fs.readdirSync(path.resolve(__dirname, './src/pages'))
+  const pages=getPages('./src/pages/');
   pages.unshift('index.html');
   const htmlPages=pages.filter(page => path.extname(page)=='.html');
   return htmlPages.map(item => {
-    const name=item.split('.')[0]
+    const name=item.split((__dirname+'/src/pages/')).at(-1).split('.')[0];
     generateEntryPoints(name);
     if(name=='index'){
       return new HtmlWebpackPlugin({
@@ -49,6 +63,7 @@ function generateHTML(){
     })
   })
 }
+
 const generatedHTML=generateHTML();
 
 module.exports={
