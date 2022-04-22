@@ -34,6 +34,22 @@ function getPages(dirPath, pages){
   return pages;
 }
 
+function generateChunks(page){
+  if(page.includes('/')){
+    let chunks=[];
+    page.split('/').forEach(function(section){
+      if(chunks.length==0){
+        chunks.push(section);
+      }
+      else{
+        chunks.push(`${chunks.join('.')}.${section}`);
+      }
+    })
+    return ['main'].concat(chunks);
+  }
+  return ['main', page];
+}
+
 function generateHTML(){
   const pages=getPages('./src/pages/');
   pages.unshift('index.html');
@@ -56,7 +72,7 @@ function generateHTML(){
       filename:`${name}.html`,
       template:`./src/pages/${name}.html`,
       favicon: './src/assets/img/favicon.ico',
-      chunks:  ['main', name],
+      chunks:  generateChunks(name),
       meta:    {
         viewport:'width=device-width, initial-scale=1'
       }
