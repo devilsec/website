@@ -5,6 +5,6 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
  * Base web component class which provides the Bootstrap styles.
  * Imported and used within all web components.
  */
-export class BaseElement extends LitElement {
+export class BaseElement extends LitElement{
   static styles = bootstrap;
 }

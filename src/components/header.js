@@ -1,8 +1,8 @@
 import { html } from 'lit';
 import { BaseElement } from './bootstrap.js';
 
-export class Header extends BaseElement {
-  render() {
+export class Header extends BaseElement{
+  render(){
     return html`
             <div class="sticky">
                 <nav class="navbar navbar-inverse">

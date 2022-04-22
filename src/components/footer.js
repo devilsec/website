@@ -1,8 +1,8 @@
 import { html } from 'lit';
 import { BaseElement } from './bootstrap.js';
 
-export class Footer extends BaseElement {
-  render() {
+export class Footer extends BaseElement{
+  render(){
     return html`
             <footer>
                 <div>&copy; DevilSec 2022</div>
