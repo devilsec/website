@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InjectBodyPlugin=require('inject-body-webpack-plugin').default;
 const ESLintPlugin=require('eslint-webpack-plugin');
 
 let entryPoints = {
@@ -155,6 +156,14 @@ module.exports={
     ]
   },
   plugins:[
-    new ESLintPlugin()
+    new ESLintPlugin(),
+    new InjectBodyPlugin({
+      content: '<main-header></main-header>',
+      position:'start'
+    }),
+    new InjectBodyPlugin({
+      content: '<main-footer></main-footer>',
+      position:'end'
+    })
   ].concat(generatedHTML)
 };
