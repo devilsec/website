@@ -7,8 +7,15 @@ let entryPoints = {
   main:['./src/main.js', './src/assets/scss/main.scss']
 };
 
+function arrEmpty(arr){
+  if(arr.length>0){
+    return false;
+  }
+  return true;
+}
+
 function addChunk(name, chunks){
-  if(chunks.length>0){
+  if(!arrEmpty(chunks)){
     entryPoints[name]=chunks;
   }
 }
@@ -35,7 +42,7 @@ function generateEntryPoints(name){
       if(index==name.length-1){
         addChunk(`${passDirs.join('.')}.${section}`, getAssets(`${passDirs.join('/')}/${section}`));
       }
-      else if(passDirs.length==0){
+      else if(arrEmpty(passDirs)){
         addChunk(section, getAssetsDir(section));
       }
       else{
@@ -67,7 +74,7 @@ function generateChunks(page){
   if(page.includes('/')){
     let chunks=[];
     page.split('/').forEach(function(section){
-      if(chunks.length==0){
+      if(arrEmpty(chunks)){
         chunks.push(section);
       }
       else{
