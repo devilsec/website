@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { BaseElement } from './bootstrap.js';
+import { BaseElement } from './bootstrap';
 
 export class Footer extends BaseElement{
   render(){
