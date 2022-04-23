@@ -7,7 +7,13 @@ let entryPoints = {
   main:['./src/main.js', './src/assets/scss/main.scss']
 };
 
-function generateEntryPoints(name){
+function addChunk(name, chunks){
+  if(chunks.length>0){
+    entryPoints[name]=chunks;
+  }
+}
+
+function getAssets(name){
   let entries=[];
   if(fs.existsSync(`./src/assets/scss/${name}.scss`)){
     entries.push(`./src/assets/scss/${name}.scss`);
@@ -15,8 +21,31 @@ function generateEntryPoints(name){
   if(fs.existsSync(`./src/assets/js/${name}.js`)){
     entries.push(`./src/assets/js/${name}.js`);
   }
-  if(entries.length>0){
-    entryPoints[name]=entries;
+  return entries;
+}
+
+function getAssetsDir(dir){
+  return [].concat(getAssets(dir)).concat(getAssets(`${dir}/index`));
+}
+
+function generateEntryPoints(name){
+  let passDirs=[];
+  if(name.includes('/')){
+    name.split('/').forEach(function(section, index){
+      if(index==name.length-1){
+        addChunk(`${passDirs.join('.')}.${section}`, getAssets(`${passDirs.join('/')}/${section}`));
+      }
+      else if(passDirs.length==0){
+        addChunk(section, getAssetsDir(section));
+      }
+      else{
+        addChunk(`${passDirs.join('.')}.${section}`, getAssetsDir(`${passDirs.join('/')}/${section}`));
+      }
+      passDirs.push(section);
+    })
+  }
+  else{
+    addChunk(name, getAssets(name));
   }
 }
 
@@ -42,7 +71,7 @@ function generateChunks(page){
         chunks.push(section);
       }
       else{
-        chunks.push(`${chunks.join('.')}.${section}`);
+        chunks.push(`${chunks.at(-1)}.${section}`);
       }
     })
     return ['main'].concat(chunks);
