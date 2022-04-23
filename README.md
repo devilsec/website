@@ -12,12 +12,20 @@ This repository contains the main DevilSec website.
 - `npm install`
 
 ### Running
-- `npm run watch`
+- `npm run watch` / `npm run start`
 - Vist the generated site at [http://localhost:8080/](http://localhost:8080/).
 
 ### Linting
 
-- `npm run lint`
+- Lint JS: `npm run lint-js`
+- Lint CSS/SCSS: `npm run lint-css`
+- Lint all code files: `npm run lint`
+
+#### To apply the linting configuration and fix the file formatting:
+
+- Apply JS linting: `npm run fix-js`
+- Apply CSS/SCSS linting: `npm run fix-css`
+- Apply linting for all code files: `npm run lint-fix`
 
 ### Building
 - `npm run build`
