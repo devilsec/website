@@ -17,7 +17,7 @@
         "function-call-argument-newline": ["warn", "never"],
         "function-paren-newline": ["warn", "never"],
         "array-element-newline": ["warn", {"multiline": true}],
-        "key-spacing": ["warn", {"afterColon": false, "align": "value"}],
+        "key-spacing": ["warn", {"beforeColon": false, "afterColon": true, "align": "value"}],
         "new-parens": ["warn", "always"],
         "no-tabs": ["warn"],
         "quotes": ["warn", "single"],

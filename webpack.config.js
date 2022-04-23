@@ -5,7 +5,7 @@ const InjectBodyPlugin=require('inject-body-webpack-plugin').default;
 const ESLintPlugin=require('eslint-webpack-plugin');
 
 let entryPoints = {
-  main:['./src/main.js', './src/assets/scss/main.scss']
+  main: ['./src/main.js', './src/assets/scss/main.scss']
 };
 
 function arrEmpty(arr){
@@ -96,22 +96,22 @@ function generateHTML(){
     generateEntryPoints(name);
     if(name=='index'){
       return new HtmlWebpackPlugin({
-        template:'./src/index.html',
-        filename:'index.html',
-        favicon: './src/assets/img/favicon.ico',
-        chunks:  ['main', 'index'],
-        meta:    {
-          viewport:'width=device-width, initial-scale=1'
+        template: './src/index.html',
+        filename: 'index.html',
+        favicon:  './src/assets/img/favicon.ico',
+        chunks:   ['main', 'index'],
+        meta:     {
+          viewport: 'width=device-width, initial-scale=1'
         }
       });
     }
     return new HtmlWebpackPlugin({
-      filename:`${name}.html`,
-      template:`./src/pages/${name}.html`,
-      favicon: './src/assets/img/favicon.ico',
-      chunks:  generateChunks(name),
-      meta:    {
-        viewport:'width=device-width, initial-scale=1'
+      filename: `${name}.html`,
+      template: `./src/pages/${name}.html`,
+      favicon:  './src/assets/img/favicon.ico',
+      chunks:   generateChunks(name),
+      meta:     {
+        viewport: 'width=device-width, initial-scale=1'
       }
     });
   });
@@ -120,50 +120,50 @@ function generateHTML(){
 const generatedHTML=generateHTML();
 
 module.exports={
-  entry: entryPoints,
-  mode:  'development',
-  output:{
-    path:    path.resolve(__dirname, './dist/'),
-    filename:'[name].bundle.js'
+  entry:  entryPoints,
+  mode:   'development',
+  output: {
+    path:     path.resolve(__dirname, './dist/'),
+    filename: '[name].bundle.js'
   },
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
-        test:  /\.html$/,
-        loader:'html-loader'
+        test:   /\.html$/,
+        loader: 'html-loader'
       },
       {
-        test:   /\.js$/,
-        exclude:'/node_modules/',
-        use:    {loader:'babel-loader'}
+        test:    /\.js$/,
+        exclude: '/node_modules/',
+        use:     {loader: 'babel-loader'}
       },
       {
-        test:/\.(scss)$/,
-        use: [
-          {loader:'style-loader'}, {loader:'css-loader'}, {loader:'postcss-loader'}, {loader:'sass-loader'}
+        test: /\.(scss)$/,
+        use:  [
+          {loader: 'style-loader'}, {loader: 'css-loader'}, {loader: 'postcss-loader'}, {loader: 'sass-loader'}
         ]
       },
       {
-        test:/\.(css)$/,
-        use: [
+        test: /\.(css)$/,
+        use:  [
           'style-loader', 'css-loader'
         ]
       },
       {
-        test:/\.(png|svg|jpg|jpeg|gif)$/i,
-        type:'asset/resource'
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
       }
     ]
   },
-  plugins:[
+  plugins: [
     new ESLintPlugin(),
     new InjectBodyPlugin({
-      content: '<main-header></main-header>',
-      position:'start'
+      content:  '<main-header></main-header>',
+      position: 'start'
     }),
     new InjectBodyPlugin({
-      content: '<main-footer></main-footer>',
-      position:'end'
+      content:  '<main-footer></main-footer>',
+      position: 'end'
     })
   ].concat(generatedHTML)
 };
