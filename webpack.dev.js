@@ -16,7 +16,7 @@ module.exports=merge(common, {
     errorDetails:  true,
     errorStack:    true,
     moduleTrace:   true,
-    buildAt:       true,
+    builtAt:       true,
     errorsCount:   true,
     warningsCount: true,
     timings:       true,
