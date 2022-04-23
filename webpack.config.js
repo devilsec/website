@@ -49,7 +49,7 @@ function generateEntryPoints(name){
         addChunk(`${passDirs.join('.')}.${section}`, getAssetsDir(`${passDirs.join('/')}/${section}`));
       }
       passDirs.push(section);
-    })
+    });
   }
   else{
     addChunk(name, getAssets(name));
@@ -58,7 +58,7 @@ function generateEntryPoints(name){
 
 function getPages(dirPath, pages){
   let files=fs.readdirSync(dirPath);
-  pages=pages || []
+  pages=pages || [];
   files.forEach(function(file){
     if(fs.statSync(dirPath+'/'+file).isDirectory()){
       pages=getPages(dirPath+'/'+file, pages);
@@ -66,7 +66,7 @@ function getPages(dirPath, pages){
     else{
       pages.push(path.join(__dirname, dirPath, '/', file));
     }
-  })
+  });
   return pages;
 }
 
@@ -80,7 +80,7 @@ function generateChunks(page){
       else{
         chunks.push(`${chunks.at(-1)}.${section}`);
       }
-    })
+    });
     return ['main'].concat(chunks);
   }
   return ['main', page];
@@ -102,7 +102,7 @@ function generateHTML(){
         meta:    {
           viewport:'width=device-width, initial-scale=1'
         }
-      })
+      });
     }
     return new HtmlWebpackPlugin({
       filename:`${name}.html`,
@@ -112,8 +112,8 @@ function generateHTML(){
       meta:    {
         viewport:'width=device-width, initial-scale=1'
       }
-    })
-  })
+    });
+  });
 }
 
 const generatedHTML=generateHTML();
@@ -157,4 +157,4 @@ module.exports={
   plugins:[
     new ESLintPlugin()
   ].concat(generatedHTML)
-}
+};

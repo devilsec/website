@@ -25,6 +25,7 @@
         "wrap-regex": ["warn"],
         "spaced-comment": ["warn", "always"],
         "curly": ["warn", "all"],
-        "camelcase": ["warn", {"properties": "always", "ignoreDestructuring": true, "ignoreImports": true}]
+        "camelcase": ["warn", {"properties": "always", "ignoreDestructuring": true, "ignoreImports": true}],
+        "semi": ["warn", "always"]
     }
 }
