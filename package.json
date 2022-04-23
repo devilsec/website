@@ -19,7 +19,7 @@
         "fix-css": "npm run lint-css -- --fix",
         "lint": "npm-run-all lint-js lint-css",
         "lint-fix": "npm-run-all fix-js fix-css",
-        "build": "webpack --config webpack.prod.js",
+        "build": "npm run lint-fix & webpack --config webpack.prod.js",
         "watch": "webpack serve --config webpack.dev.js",
         "start": "npm run watch"
     },
