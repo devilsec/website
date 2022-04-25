@@ -1,0 +1,31 @@
+{
+    "parser": "@babel/eslint-parser",
+    "parserOptions":{
+        "requireConfigFile": false
+    },
+    "rules":{
+        "brace-style": ["warn", "stroustrup", {"allowSingleLine": true}],
+        "indent": ["warn", 2, {"SwitchCase": 1}],
+        "comma-dangle": ["warn", "never"],
+        "comma-style": ["warn", "last"],
+        "comma-spacing": ["warn", {"before": false, "after": true}],
+        "block-spacing": ["warn", "never"],
+        "no-mixed-spaces-and-tabs": ["warn"],
+        "no-trailing-spaces": ["warn",{"ignoreComments": true}],
+        "space-before-blocks": ["warn", "never"],
+        "func-call-spacing": ["warn", "never"],
+        "function-call-argument-newline": ["warn", "never"],
+        "function-paren-newline": ["warn", "never"],
+        "array-element-newline": ["warn", {"multiline": true}],
+        "key-spacing": ["warn", {"beforeColon": false, "afterColon": true, "align": "value"}],
+        "new-parens": ["warn", "always"],
+        "no-tabs": ["warn"],
+        "quotes": ["warn", "single"],
+        "no-useless-escape": ["warn"],
+        "wrap-regex": ["warn"],
+        "spaced-comment": ["warn", "always"],
+        "curly": ["warn", "all"],
+        "camelcase": ["warn", {"properties": "always", "ignoreDestructuring": true, "ignoreImports": true}],
+        "semi": ["warn", "always"]
+    }
+}
