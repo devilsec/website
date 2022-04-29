@@ -20,8 +20,8 @@ jobs:
           node-version: 16
       - name: Install Node packages
         run: npm install
-          #- name: Lint
-          #run: npm run lint-fix
+      - name: Lint
+        run: npm run lint-fix
       - name: Build
         run: npm run build
       # This allows us to utilise the build in the deployment job.
