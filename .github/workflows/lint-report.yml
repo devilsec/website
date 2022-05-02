@@ -1,8 +1,8 @@
 name: Lint Report
 
 on:
-  pull_request:
-    types: [opened]
+  - workflow_call
+  - workflow_dispatch
 
 jobs:
   lint-report:
@@ -25,5 +25,5 @@ jobs:
         with:
           issueSummary: true
           issueSummaryType: full
-          annotateWarnings: true
+          issueSummaryMethod: refresh
           reportIgnoreFiles: true
