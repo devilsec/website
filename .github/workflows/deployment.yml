@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 16
       - name: Install Node packages
-        run: npm install --production
+        run: npm install
       - name: Build
         run: npm run build
       # This allows us to utilise the build in the deployment job.
