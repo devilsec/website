@@ -1,0 +1,29 @@
+name: Lint Report
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  lint-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          persist-credentials: false
+          submodules: recursive
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Node packages
+        run: npm install
+      - name: Lint Files
+        uses: Maggi64/eslint-plus-action@master
+        with:
+          issueSummary: true
+          issueSummaryType: full
+          annotateWarnings: true
+          reportIgnoreFiles: true
