@@ -19,9 +19,9 @@
         "fix-css": "npm run lint-css -- --fix",
         "lint": "npm-run-all lint-js lint-css",
         "lint-fix": "npm-run-all fix-js fix-css",
-        "build": "if-env NODE_ENV=production ?? npm run build:prod || npm run build:dev",
+        "build": "if-env NODE_ENV=production && npm run build:prod || npm run build:dev",
         "build:dev": "npm run lint-fix & webpack --config webpack.prod.js",
-        "build:prod": "npm run lint-fix & webpack --config webpack.prod.js",
+        "build:prod": "webpack --config webpack.prod.js",
         "watch": "webpack serve --config webpack.dev.js",
         "start": "npm run watch"
     },
