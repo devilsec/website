@@ -1,5 +1,6 @@
 const {merge} = require('webpack-merge');
 const common = require('./webpack.common');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports=merge(common, {
   mode:    'development',
@@ -29,5 +30,8 @@ module.exports=merge(common, {
     compress: false,
     hot:      true,
     open:     true
-  }
+  },
+  plugins: [
+    new ESLintPlugin()
+  ]
 });
