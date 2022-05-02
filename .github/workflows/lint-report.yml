@@ -11,7 +11,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: main
           persist-credentials: false
           submodules: recursive
       - name: Install Node
@@ -26,14 +25,13 @@ jobs:
           issueSummary: true
           issueSummaryType: full
           issueSummaryMethod: refresh
-          reportIgnoreFiles: true
+          reportIgnoredFiles: true
   css-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: main
           persist-credentials: false
           submodules: recursive
       - name: Install Node
@@ -46,4 +44,4 @@ jobs:
         uses: actions-hub/stylelint@master
         env:
           INDENT_SPACES: 2
-          PATTERN: "*.{css,scss}"
+          PATTERN: "**/*.{css,scss}"
