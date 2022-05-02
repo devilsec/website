@@ -5,7 +5,7 @@ on:
   - workflow_dispatch
 
 jobs:
-  lint-report:
+  js-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,10 +20,30 @@ jobs:
           node-version: 16
       - name: Install Node packages
         run: npm install
-      - name: Lint Files
+      - name: Lint JS Files
         uses: Maggi64/eslint-plus-action@master
         with:
           issueSummary: true
           issueSummaryType: full
           issueSummaryMethod: refresh
           reportIgnoreFiles: true
+  css-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          persist-credentials: false
+          submodules: recursive
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Node Packages
+        run: npm install
+      - name: Lint CSS Files
+        uses: actions-hub/stylelint@master
+        env:
+          INDENT_SPACES: 2
+          PATTERN: "*.{css,scss}"
