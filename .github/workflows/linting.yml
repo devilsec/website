@@ -2,6 +2,32 @@ name: Linting
 
 on:
   workflow_dispatch:
+    inputs:
+      pre-report:
+        description: 'Whether a linting report should be generated prior to linting.'
+        default: true
+        required: false
+        type: boolean
+      post-report:
+        description: 'Whether a linting report should be generated after the linting.'
+        default: true
+        required: false
+        type: boolean
+      fix:
+        description: 'Whether the code should be linted or only analysed.'
+        default: true
+        required: true
+        type: boolean
+      js:
+        description: 'Whether JS code should be included.'
+        default: true
+        required: false
+        type: boolean
+      css:
+        description: 'Whether CSS and SCSS should be included.'
+        default: true
+        required: false
+        type: boolean
   workflow_call:
     inputs:
       pre-report:

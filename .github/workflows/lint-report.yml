@@ -2,6 +2,17 @@ name: Lint Report
 
 on:
   workflow_dispatch:
+    inputs:
+      js:
+        description: 'Whether JS code should be included.'
+        default: true
+        required: false
+        type: boolean
+      css:
+        description: 'Whether CSS and SCSS should be included.'
+        default: true
+        required: false
+        type: boolean
   workflow_call:
     inputs:
       js:
