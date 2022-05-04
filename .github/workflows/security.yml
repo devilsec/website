@@ -6,12 +6,8 @@ env:
   URL: 'https://devilsec.github.io/website/'
 
 on:
-  push:
-    branches: [main]
   page_build:
     branch: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   zap_scan:
