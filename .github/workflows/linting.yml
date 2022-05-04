@@ -1,0 +1,84 @@
+name: Linting
+
+on:
+  workflow_dispatch:
+    inputs:
+      pre-report:
+        description: 'Whether a linting report should be generated prior to linting.'
+        default: true
+        required: false
+        type: boolean
+      post-report:
+        description: 'Whether a linting report should be generated after the linting.'
+        default: true
+        required: false
+        type: boolean
+      fix:
+        description: 'Whether the code should be linted or only analysed.'
+        default: true
+        required: true
+        type: boolean
+      js:
+        description: 'Whether JS code should be included.'
+        default: true
+        required: false
+        type: boolean
+      css:
+        description: 'Whether CSS and SCSS should be included.'
+        default: true
+        required: false
+        type: boolean
+  workflow_call:
+    inputs:
+      pre-report:
+        description: 'Whether a linting report should be generated prior to linting.'
+        default: true
+        required: false
+        type: boolean
+      post-report:
+        description: 'Whether a linting report should be generated after the linting.'
+        default: true
+        required: false
+        type: boolean
+      fix:
+        description: 'Whether the code should be linted or only analysed.'
+        default: true
+        required: true
+        type: boolean
+      js:
+        description: 'Whether JS code should be included.'
+        default: true
+        required: false
+        type: boolean
+      css:
+        description: 'Whether CSS and SCSS should be included.'
+        default: true
+        required: false
+        type: boolean
+
+jobs:
+  pre-lint-report:
+    if: ${{inputs.pre-report == 'true'}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./github/workflows/lint-report
+        with:
+          js: ${{inputs.js}}
+          css: ${{inputs.css}}
+  lint-fix:
+    if: ${{inputs.fix == 'true'}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./github/workflows/lint-fix
+        with:
+          js: ${{inputs.js}}
+          css: ${{inputs.css}}
+  post-lint-report:
+    if: ${{inputs.post-report == 'true'}} && ${{inputs.fix == 'true'}}
+    runs-on: ubuntu-latest
+    needs: lint-fix
+    steps:
+      - uses: ./github/workflows/lint-report
+        with:
+          js: ${{inputs.js}}
+          css: ${{inputs.css}}

@@ -1,0 +1,81 @@
+name: Linting Fixing
+
+on:
+  workflow_dispatch:
+    inputs:
+      js:
+        description: 'Whether JS code should be linted'
+        default: true
+        required: false
+        type: boolean
+      css:
+        description: 'Whether CSS and SCSS code should be linted'
+        default: true
+        required: false
+        type: boolean
+  workflow_call:
+    inputs:
+      js:
+        description: 'Whether JS code should be linted'
+        default: true
+        required: false
+        type: boolean
+      css:
+        description: 'Whether CSS and SCSS code should be linted'
+        default: true
+        required: false
+        type: boolean
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  project-setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./github/workflows/setup-project
+  fix-js:
+    if: ${{ inputs.js == 'true' }} || ${{ github.event.review.state == 'approved' }}
+    runs-on: ubuntu-latest
+    needs: project-setup
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Retrieve pre-setup project
+        uses: actions/download-artifact@v1
+        with:
+          name: ${{ needs.project-setup.outputs.BUILD_NAME }}
+      - name: Lint and Fix JS
+        run: |
+          npm run lint-js
+          npm run fix-js
+      - name: Create commit message
+        run: echo "CM=Lint and Fix JS $(date +%y-%m-%dT%H%M%S -u)" >> $GITHUB_ENV
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ${{ env.CM }}
+          commit_user_name: JS Linting Bot
+          commit_author: JS Linting Bot
+  fix-css:
+    if: ${{ inputs.css == 'true' }} || ${{ github.event.review.state == 'approved' }}
+    runs-on: ubuntu-latest
+    needs: project-setup
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Retrieve pre-setup project
+        uses: actions/download-artifact@v1
+        with:
+          name: ${{ needs.project-setup.outputs.BUILD_NAME }}
+      - name: Lint and Fix JS
+        run: |
+          npm run lint-css
+          npm run fix-css
+      - name: Create commit message
+        run: echo "CM=Lint and Fix CSS $(date +%y-%m-%dT%H%M%S -u)" >> $GITHUB_ENV
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ${{ env.CM }}
+          commit_user_name: CSS Linting Bot
+          commit_author: CSS Linting Bot

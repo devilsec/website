@@ -1,0 +1,55 @@
+name: Setup Project and Node Environment
+
+on:
+  workflow_call:
+    inputs:
+      main-branch:
+        description: 'Whether to utilise the main branch or the current branch'
+        default: false
+        required: false
+        type: boolean
+      production:
+        description: 'Whether this is a production environment or not'
+        default: false
+        required: false
+        type: boolean
+
+jobs:
+  setup-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Main Branch
+        if: ${{ main-branch == 'true' }}
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          persist-credentials: false
+          submodules: recursive
+      - name: Checkout Branch
+        if: ${{ main-branch == 'false' }}
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          submodules: recursive
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Production Packages
+        if: ${{ production == 'true' }}
+        env:
+          NODE_ENV: production
+        run: npm install
+      - name: Install Non-Production Packages
+        if: ${{ production == 'false' }}
+        run: npm install
+      - name: Set Build Name
+        run: echo "BUILD_NAME=$(($(date +%s)*$RANDOM^2))" >> $GITHUB_ENV
+      - name: Export Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.BUILD_NAME }}
+          path: ./
+          retention-days: 1
+      - name: Output Directory Name
+        run: echo '::set-output name=export-dir::${{ env.BUILD_NAME }}'
