@@ -14,6 +14,8 @@ on:
         default: true
         required: false
         type: boolean
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   project-setup:
@@ -21,7 +23,7 @@ jobs:
     steps:
       - uses: ./github/workflows/setup-project
   fix-js:
-    if: ${{ js == 'true' }}
+    if: ${{ inputs.js == 'true' }} || ${{ github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
@@ -44,7 +46,7 @@ jobs:
           commit_user_name: JS Linting Bot
           commit_author: JS Linting Bot
   fix-css:
-    if: ${{ css == 'true' }}
+    if: ${{ inputs.css == 'true' }} || ${{ github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest
     needs: project-setup
     steps:

@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: ./github/workflows/setup-project
   js-lint:
-    if: ${{ js == 'true' }}
+    if: ${{ inputs.js == 'true' }} || ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
@@ -37,11 +37,11 @@ jobs:
         uses: Maggi64/eslint-plus-action@master
         with:
           issueSummary: true
-          issueSummaryType: 'full'
-          issueSummaryMethod: 'refresh'
+          issueSummaryType: full
+          issueSummaryMethod: refresh
           reportIgnoredFiles: true
   css-lint:
-    if: ${{ css == 'true' }}
+    if: ${{ css == 'true' }} || ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
