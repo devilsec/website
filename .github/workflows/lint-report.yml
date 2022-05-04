@@ -1,8 +1,19 @@
 name: Lint Report
 
 on:
-  - workflow_call
-  - workflow_dispatch
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      js:
+        description: 'Whether JS code should be included.'
+        default: true
+        required: false
+        type: boolean
+      css:
+        description: 'Whether CSS and SCSS should be included.'
+        default: true
+        required: false
+        type: boolean
 
 jobs:
   project-setup:
@@ -10,6 +21,7 @@ jobs:
     steps:
       - uses: ./github/workflows/setup-project
   js-lint:
+    if: ${{ js == 'true' }}
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
@@ -23,10 +35,11 @@ jobs:
         uses: Maggi64/eslint-plus-action@master
         with:
           issueSummary: true
-          issueSummaryType: full
-          issueSummaryMethod: refresh
+          issueSummaryType: 'full'
+          issueSummaryMethod: 'refresh'
           reportIgnoredFiles: true
   css-lint:
+    if: ${{ css == 'true' }}
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
