@@ -50,5 +50,6 @@ jobs:
         with:
           name: ${{ env.BUILD_NAME }}
           path: ./
+          retention-days: 1
       - name: Output Directory Name
         run: echo '::set-output name=export-dir::${{ env.BUILD_NAME }}'
