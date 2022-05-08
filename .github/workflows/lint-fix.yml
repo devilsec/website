@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
-      - name: Retrieve pre-setup project
+      - name: Retrieve Source Artifact
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.project-setup.outputs.export-dir }}
@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
-      - name: Retrieve pre-setup project
+      - name: Retrieve Source Artifact
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.project-setup.outputs.export-dir }}

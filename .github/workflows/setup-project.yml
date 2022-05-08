@@ -67,7 +67,7 @@ jobs:
       - name: Tarball Source Files for Export
         if: ${{ inputs.build != true }}
         run: tar -cvf ${{ env.BUILD_NAME }}.tar ./
-      - name: Export Build
+      - name: Export Artifact
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.BUILD_NAME }}
