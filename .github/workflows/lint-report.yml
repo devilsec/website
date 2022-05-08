@@ -41,7 +41,7 @@ jobs:
       - name: Retrieve pre-setup project
         uses: actions/download-artifact@v1
         with:
-          name: ${{ needs.project-setup.outputs.BUILD_NAME }}
+          name: ${{ needs.project-setup.outputs.export-dir }}
       - name: Lint JS Files
         uses: Maggi64/eslint-plus-action@master
         with:
@@ -59,7 +59,7 @@ jobs:
       - name: Retrieve pre-setup project
         uses: actions/download-artifact@v1
         with:
-          name: ${{ needs.project-setup.outputs.BUILD_NAME }}
+          name: ${{ needs.project-setup.outputs.export-dir }}
       - name: Lint CSS Files
         uses: actions-hub/stylelint@master
         env:

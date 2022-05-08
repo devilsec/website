@@ -41,7 +41,7 @@ jobs:
       - name: Retrieve pre-setup project
         uses: actions/download-artifact@v1
         with:
-          name: ${{ needs.project-setup.outputs.BUILD_NAME }}
+          name: ${{ needs.project-setup.outputs.export-dir }}
       - name: Lint and Fix JS
         run: |
           npm run lint-js
@@ -64,7 +64,7 @@ jobs:
       - name: Retrieve pre-setup project
         uses: actions/download-artifact@v1
         with:
-          name: ${{ needs.project-setup.outputs.BUILD_NAME }}
+          name: ${{ needs.project-setup.outputs.export-dir }}
       - name: Lint and Fix JS
         run: |
           npm run lint-css

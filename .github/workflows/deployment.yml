@@ -22,9 +22,9 @@ jobs:
       - name: Retrieve Build
         uses: actions/download-artifact@v1
         with:
-          name: website-gh-actions-build
+          name: ${{ needs.project-setup.outputs.export-dir }}
       - name: Deploy on GH Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages
-          folder: website-gh-actions-build
+          folder: ${{ needs.project-setup.outputs.export-dir }}/dist
