@@ -53,14 +53,19 @@ jobs:
       - name: Build Project
         if: ${{ inputs.build == true }}
         run: npm run build
-      - name: Set Build Name
-        run: echo "BUILD_NAME=$(($(date +%s)*$RANDOM^2))" >> $GITHUB_ENV
+      - name: Set Artifact Name
+        run: |
+          if [[ ${{ inputs.build }} == 'true' ]]; then
+            echo "BUILT=build"
+          else
+            echo "BUILT=no-build"
+          fi
+          echo "BUILD_NAME=$BUILT-${{ github.sha }}" >> $GITHUB_ENV
       - name: Export Build
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.BUILD_NAME }}
           path: ./
-          retention-days: 1
       - name: Output Directory Name
         id: output-dir
         run: echo '::set-output name=export-dir::${{ env.BUILD_NAME }}'
