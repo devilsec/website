@@ -13,20 +13,25 @@ on:
         default: false
         required: false
         type: boolean
+    outputs:
+      export-dir:
+        value: ${{ jobs.setup-project.outputs.export-dir }}
 
 jobs:
   setup-project:
     runs-on: ubuntu-latest
+    outputs:
+      export-dir: ${{ steps.output-dir.outputs.export-dir }}
     steps:
       - name: Checkout Main Branch
-        if: ${{ main-branch == 'true' }}
+        if: ${{ inputs.main-branch == true }}
         uses: actions/checkout@v3
         with:
           ref: main
           persist-credentials: false
           submodules: recursive
       - name: Checkout Branch
-        if: ${{ main-branch == 'false' }}
+        if: ${{ inputs.main-branch != true }}
         uses: actions/checkout@v3
         with:
           persist-credentials: false
@@ -36,12 +41,12 @@ jobs:
         with:
           node-version: 16
       - name: Install Production Packages
-        if: ${{ production == 'true' }}
+        if: ${{ inputs.production == true }}
         env:
           NODE_ENV: production
         run: npm install
       - name: Install Non-Production Packages
-        if: ${{ production == 'false' }}
+        if: ${{ inputs.production != true }}
         run: npm install
       - name: Set Build Name
         run: echo "BUILD_NAME=$(($(date +%s)*$RANDOM^2))" >> $GITHUB_ENV
@@ -52,4 +57,5 @@ jobs:
           path: ./
           retention-days: 1
       - name: Output Directory Name
+        id: output-dir
         run: echo '::set-output name=export-dir::${{ env.BUILD_NAME }}'
