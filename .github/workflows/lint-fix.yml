@@ -30,9 +30,7 @@ on:
 
 jobs:
   project-setup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./github/workflows/setup-project
+    uses: devilsec/website/.github/workflows/setup-project.yml@main
   fix-js:
     if: ${{ inputs.js == 'true' }} || ${{ github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest

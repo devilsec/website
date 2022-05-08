@@ -6,10 +6,8 @@ on:
 
 jobs:
   project-setup:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: ./github/workflows/setup-project
-      with:
+    uses: devilsec/website/.github/workflows/setup-project.yml@main
+    with:
         main-branch: true
         production: true
   build:
