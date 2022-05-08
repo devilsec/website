@@ -58,10 +58,14 @@ jobs:
           if [[ ${{ inputs.build }} == 'true' ]]; then
             echo "BUILT=build"
           else
-            echo "BUILT=no-build"
+            echo "BUILT=source"
           fi
           echo "BUILD_NAME=$BUILT-${{ github.sha }}" >> $GITHUB_ENV
-      - name: Tarball Files
+      - name: Tarball Build Files for Export
+        if: ${{ inputs.build == true }}
+        run: tar -cvf ${{ env.BUILD_NAME }}.tar dist
+      - name: Tarball Source Files for Export
+        if: ${{ inputs.build != true }}
         run: tar -cvf ${{ env.BUILD_NAME }}.tar ./
       - name: Export Build
         uses: actions/upload-artifact@v3
