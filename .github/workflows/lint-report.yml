@@ -32,7 +32,7 @@ jobs:
   project-setup:
     uses: devilsec/website/.github/workflows/setup-project.yml@main
   js-lint:
-    if: ${{ inputs.js == 'true' }} || ${{ github.event_name == 'pull_request' }}
+    if: ${{ inputs.js == true }} || ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
@@ -52,7 +52,7 @@ jobs:
           issueSummaryMethod: refresh
           reportIgnoredFiles: true
   css-lint:
-    if: ${{ inputs.css == 'true' }} || ${{ github.event_name == 'pull_request' }}
+    if: ${{ inputs.css == true }} || ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     needs: project-setup
     steps:
