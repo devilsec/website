@@ -92,8 +92,6 @@ function generateHTML(){
   pages.unshift('index.html');
   const htmlPages=pages.filter(page => path.extname(page)=='.html');
   return htmlPages.map(item => {
-    const name=item.split((__dirname+'/src/pages/')).at(-1).split('.')[0].toString();
-    console.log(typeof(name))
     generateEntryPoints(name);
     if(name=='index'){
       return new HtmlWebpackPlugin({
