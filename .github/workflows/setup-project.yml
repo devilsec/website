@@ -13,6 +13,11 @@ on:
         default: false
         required: false
         type: boolean
+      build:
+        description: 'Whether the project is to be built or not'
+        default: false
+        required: false
+        type: boolean
     outputs:
       export-dir:
         value: ${{ jobs.setup-project.outputs.export-dir }}
@@ -48,6 +53,9 @@ jobs:
       - name: Install Non-Production Packages
         if: ${{ inputs.production != true }}
         run: npm install
+      - name: Build Project
+        if: ${{ inputs.build == true }}
+        run: npm run build
       - name: Set Build Name
         run: echo "BUILD_NAME=$(($(date +%s)*$RANDOM^2))" >> $GITHUB_ENV
       - name: Export Build
