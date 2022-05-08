@@ -19,8 +19,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.project-setup.outputs.export-dir }}
+      - name: Extract Tarball
+        run: |
+          tar -xvf ${{ needs.project-setup.outputs.export-dir }}.tar
+          rm ${{ needs.project-setup.outputs.export-dir }}.tar
       - name: Deploy on GH Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages
-          folder: ${{ needs.project-setup.outputs.export-dir }}/dist
+          folder: dist

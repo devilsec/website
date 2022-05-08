@@ -40,6 +40,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.project-setup.outputs.export-dir }}
+      - name: Extract Tarball
+        run: |
+          tar -xvf ${{ needs.project-setup.outputs.export-dir }}.tar
+          rm ${{ needs.project-setup.outputs.export-dir }}.tar
       - name: Lint and Fix JS
         run: |
           npm run lint-js
@@ -61,6 +65,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.project-setup.outputs.export-dir }}
+      - name: Extract Tarball
+        run: |
+          tar -xvf ${{ needs.project-setup.outputs.export-dir }}.tar
+          rm ${{ needs.project-setup.outputs.export-dir }}.tar
       - name: Lint and Fix JS
         run: |
           npm run lint-css

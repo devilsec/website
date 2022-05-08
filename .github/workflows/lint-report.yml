@@ -40,6 +40,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.project-setup.outputs.export-dir }}
+      - name: Extract Tarball
+        run: |
+          tar -xvf ${{ needs.project-setup.outputs.export-dir }}.tar
+          rm ${{ needs.project-setup.outputs.export-dir }}.tar
       - name: Lint JS Files
         uses: Maggi64/eslint-plus-action@master
         with:
@@ -56,6 +60,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.project-setup.outputs.export-dir }}
+      - name: Extract Tarball
+        run: |
+          tar -xvf ${{ needs.project-setup.outputs.export-dir }}.tar
+          rm ${{ needs.project-setup.outputs.export-dir }}.tar
       - name: Lint CSS Files
         uses: actions-hub/stylelint@master
         env:

@@ -61,11 +61,13 @@ jobs:
             echo "BUILT=no-build"
           fi
           echo "BUILD_NAME=$BUILT-${{ github.sha }}" >> $GITHUB_ENV
+      - name: Tarball Files
+        run: tar -cvf ${{ env.BUILD_NAME }}.tar ./
       - name: Export Build
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.BUILD_NAME }}
-          path: ./
+          path: ${{ env.BUILD_NAME }}.tar
       - name: Output Directory Name
         id: output-dir
         run: echo '::set-output name=export-dir::${{ env.BUILD_NAME }}'
