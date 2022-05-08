@@ -26,6 +26,8 @@
         "spaced-comment": ["warn", "always"],
         "curly": ["warn", "all"],
         "camelcase": ["warn", {"properties": "always", "ignoreDestructuring": true, "ignoreImports": true}],
-        "semi": ["warn", "always"]
+        "semi": ["warn", "always"],
+        "no-unused-vars": ["error", {"args": "after-used"}],
+        "no-extra-semi": ["warn"]
     }
 }
