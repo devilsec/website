@@ -1,6 +1,6 @@
 # This is a GitHub workflow to run a security scan on the website.
 
-name: Security
+name: Web Security Scan
 
 env:
   URL: 'https://devilsec.github.io/website/'
