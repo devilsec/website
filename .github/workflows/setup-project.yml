@@ -49,7 +49,7 @@ jobs:
         if: ${{ inputs.production == true }}
         run: echo "NODE_ENV=production" >> $GITHUB_ENV
       - name: Install Node Packages
-        run: npm install
+        run: npm ci
       - name: Build Project
         if: ${{ inputs.build == true }}
         run: npm run build
