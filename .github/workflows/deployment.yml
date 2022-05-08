@@ -13,7 +13,7 @@ jobs:
         build: true
   deploy:
     runs-on: ubuntu-latest
-    needs: setup-project
+    needs: project-setup
     steps:
       - name: Checkout # Checkout simply to fix issues with GH deploy
         uses: actions/checkout@v3
