@@ -56,9 +56,9 @@ jobs:
       - name: Set Artifact Name
         run: |
           if [[ ${{ inputs.build }} == 'true' ]]; then
-            echo "BUILT=build"
+            export "BUILT=build"
           else
-            echo "BUILT=source"
+            export "BUILT=source"
           fi
           echo "BUILD_NAME=$BUILT-${{ github.sha }}" >> $GITHUB_ENV
       - name: Tarball Build Files for Export
