@@ -39,6 +39,7 @@ function getAssetsDir(dir){
 function generateEntryPoints(name){
   let passDirs=[];
   if(name.includes('/')){
+    const name=item.split((__dirname+'/src/pages/')).at(-1).split('.')[0];
     name.split('/').forEach(function(section, index){
       if(index==name.length-1){
         addChunk(`${passDirs.join('.')}.${section}`, getAssets(`${passDirs.join('/')}/${section}`));
