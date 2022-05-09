@@ -1,0 +1,12 @@
+name: Production Build Test
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    uses: devilsec/website/.github/workflows/setup-project.yml@main
+    with:
+      production: true
+      build: true
