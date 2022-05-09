@@ -39,7 +39,6 @@ function getAssetsDir(dir){
 function generateEntryPoints(name){
   let passDirs=[];
   if(name.includes('/')){
-    const name=item.split((__dirname+'/src/pages/')).at(-1).split('.')[0];
     name.split('/').forEach(function(section, index){
       if(index==name.length-1){
         addChunk(`${passDirs.join('.')}.${section}`, getAssets(`${passDirs.join('/')}/${section}`));
@@ -93,6 +92,7 @@ function generateHTML(){
   pages.unshift('index.html');
   const htmlPages=pages.filter(page => path.extname(page)=='.html');
   return htmlPages.map(item => {
+    const name=item.split((__dirname+'/src/pages/')).at(-1).split('.')[0];
     generateEntryPoints(name);
     if(name=='index'){
       return new HtmlWebpackPlugin({
