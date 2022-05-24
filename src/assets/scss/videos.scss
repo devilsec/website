@@ -46,3 +46,45 @@ footer {
   }
   .row.content { height: auto; }
 }
+
+/* page headings params */
+
+#subheading {
+  padding-top: 2%;
+  text-align: left;
+  text-indent: 1%;
+}
+
+/* Changes to the default params of the flip/trivia cards */
+.trivia-card {
+  --flip-card-transition-duration: 400ms;
+  --flip-card-height: 200px;
+
+  position: relative;
+}
+
+/* Set params of the divs that contain the cards */
+#container {
+  width: auto;
+  padding: 2%;
+  font-size: x-large;
+}
+
+#container-text {
+  padding: 15px;
+}
+
+.card-face {
+  width: auto;
+  display: block;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+}
+
+/* video embed params */
+.video-embed {
+  min-height: fit-content;
+  height: var(--flip-card-height);
+  padding: 2%;
+}

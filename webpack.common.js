@@ -64,7 +64,7 @@ function getPages(dirPath, pages){
       pages=getPages(dirPath+'/'+file, pages);
     }
     else{
-      pages.push(path.join('/', file));
+      pages.push(path.join(__dirname, dirPath, '/', file));
     }
   });
   return pages;
