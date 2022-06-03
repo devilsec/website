@@ -1,1 +1,0 @@
-import 'flip-card-wc';
