@@ -46,7 +46,6 @@ jobs:
           rm ./${{ needs.project-setup.outputs.export-dir }}.tar
       - name: Lint and Fix JS
         run: |
-          npm run lint-js
           npm run fix-js
       - name: Create commit message
         run: echo "CM=Lint and Fix JS $(date +%y-%m-%dT%H%M%S -u)" >> $GITHUB_ENV
@@ -71,7 +70,6 @@ jobs:
           rm ./${{ needs.project-setup.outputs.export-dir }}.tar
       - name: Lint and Fix JS
         run: |
-          npm run lint-css
           npm run fix-css
       - name: Create commit message
         run: echo "CM=Lint and Fix CSS $(date +%y-%m-%dT%H%M%S -u)" >> $GITHUB_ENV
