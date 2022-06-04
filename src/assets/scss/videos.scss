@@ -46,3 +46,34 @@ footer {
   }
   .row.content { height: auto; }
 }
+
+/* page headings params */
+
+#subheading {
+  padding-top: 2%;
+  text-align: left;
+  text-indent: 1%;
+}
+
+/* params of divs holding video cards*/
+#video-cards{
+ justify-content: center;
+}
+
+/* Changes to the default params of the Bootstrap card class */
+.card {
+  margin: 0.5%;
+  min-width: fit-content;
+}
+
+/* video embed params */
+.video-embed {
+  width: auto;
+}
+
+/* video tag params */
+#tags{
+  padding: 0%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
