@@ -54,7 +54,6 @@ jobs:
         with:
           commit_message: ${{ env.CM }}
           commit_user_name: JS Linting Bot
-          commit_author: JS Linting Bot
   fix-css:
     if: ${{ inputs.css == true }} || ${{ github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest
@@ -78,4 +77,3 @@ jobs:
         with:
           commit_message: ${{ env.CM }}
           commit_user_name: CSS Linting Bot
-          commit_author: CSS Linting Bot
