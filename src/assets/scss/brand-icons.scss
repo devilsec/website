@@ -54,3 +54,12 @@ This stylesheet includes all brand icons and relevant stylesheet imports for thi
 
   color: $secondary;
 }
+
+// Twitch Icon:
+
+.twitch {
+  @include fa-icon-brands($fa-var-twitch);
+  @extend .fa-2x;
+
+  color: $secondary;
+}
