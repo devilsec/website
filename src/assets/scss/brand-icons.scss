@@ -1,0 +1,53 @@
+/*
+
+Brand Icon Stylesheets
+
+This stylesheet includes all brand icons and relevant stylesheet imports for this website.
+
+ */
+
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+// Twitter Icon:
+
+.twitter {
+  @extend %fa-icon !optional;
+  @extend .fa-brands;
+
+  &::before {
+    content: fa-content($fa-var-twitter);
+  }
+}
+
+// YouTube Icon:
+
+.youtube {
+  @extend %fa-icon !optional;
+  @extend .fa-brands;
+
+  &::before {
+    content: fa-content($fa-var-youtube);
+  }
+}
+
+// GitHub Icon:
+
+.github {
+  @extend %fa-icon !optional;
+  @extend .fa-brands;
+
+  &::before {
+    content: fa-content($fa-var-github);
+  }
+}
+
+// Facebook Icon:
+
+.facebook {
+  @extend %fa-icon !optional;
+  @extend .fa-brands;
+
+  &::before {
+    content: fa-content($fa-var-facebook);
+  }
+}
