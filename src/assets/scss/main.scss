@@ -10,6 +10,10 @@ body {
   text-decoration: none;
 }
 
+.col-sm-3 {
+  min-width: 350px;
+}
+
 // Mixins:
 
 @mixin border-primary {
@@ -23,7 +27,29 @@ body {
 }
 
 .card-primary {
+  @extend .card;
   @include border-primary;
 
   background-color: $background-secondary;
+
+  >.card-title {
+    margin-top: 10px;
+  }
+
+  >.card-text {
+    font-size: medium;
+    border-top: 10px;
+    border-bottom: 10px;
+  }
+
+  // List overrides:
+  >.list-group {
+    border: none;
+
+    >.list-group-item {
+      border: none;
+      background-color: $background-secondary;
+      color: $font-primary;
+    }
+  }
 }
