@@ -3,5 +3,9 @@
         "stylelint-config-standard",
         "stylelint-config-prettier",
         "stylelint-config-standard-scss"
-    ]
+    ],
+    "rules": {
+        "function-no-unknown": null,
+        "scss/at-extend-no-missing-placeholder": null
+    }
 }

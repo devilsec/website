@@ -1,0 +1,65 @@
+/*
+
+Brand Icon Stylesheets
+
+This stylesheet includes all brand icons and relevant stylesheet imports for this website.
+
+ */
+
+@import "colours";
+@import "icons";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+// Twitter Icon:
+
+.twitter {
+  @include fa-icon-brands($fa-var-twitter);
+  @extend .fa-2x;
+
+  color: $secondary;
+}
+
+// YouTube Icon:
+
+.youtube {
+  @include fa-icon-brands($fa-var-youtube);
+  @extend .fa-2x;
+
+  color: $secondary;
+}
+
+// GitHub Icon:
+
+.github {
+  @include fa-icon-brands($fa-var-github);
+  @extend .fa-2x;
+
+  color: $secondary;
+}
+
+// Facebook Icon:
+
+.facebook {
+  @include fa-icon-brands($fa-var-facebook);
+  @extend .fa-2x;
+
+  color: $secondary;
+}
+
+// Discord Icon:
+
+.discord {
+  @include fa-icon-brands($fa-var-discord);
+  @extend .fa-2x;
+
+  color: $secondary;
+}
+
+// Twitch Icon:
+
+.twitch {
+  @include fa-icon-brands($fa-var-twitch);
+  @extend .fa-2x;
+
+  color: $secondary;
+}
