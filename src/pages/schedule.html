@@ -15,19 +15,32 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2 class="modal-title" id="eventModalLabel">{{ Event Name }}</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <ul class="list-group center list-group-flush">
-                                <li class="list-group-item h5"><i class="calendar"></i>{{ Date }}</li>
-                                <li class="list-group-item h5"><i class="clock"></i>{{ Time }}</li>
-                                <li class="list-group-item h5"><i class="location"></i>{{ Location }}</li>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item h4"><i class="calendar"></i>{{ Date }}</li>
+                                <li class="list-group-item h4"><i class="clock"></i>{{ Time }}</li>
+                                <li class="list-group-item h4"><a href="" target="_blank" class="location-link"><i class="location"></i>{{ Location }}</a></li>
                             </ul>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item h4"><svg aria-hidden="true" data-prefix="fas" class="podium" data-icon="podium" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-podium"><path fill="currentColor" d="M432 144H111.36c6.33-30.9 30.72-55.29 62.71-62.05C182.76 90.63 194.75 96 208 96h64c26.51 0 48-21.49 48-48S298.51 0 272 0h-64c-22.06 0-40.45 14.97-46.07 35.24C109.85 46.85 70.16 90.29 63.35 144H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h416c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16zm-32 320h-38.22L384 224H64l22.22 240H48c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h352c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16z" class=""></path></svg></i>{{ Speakers }}</li>
+                            </ul>
+                        </div>
+                        <div class="modal-body">
+                            <h5>{{ Description }}</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="https://www.youtube.com/channel/UCMa2NO8KJ4DaTQ1i507nVcQ" target="_blank" role="button" class="btn btn-secondary youtube-btn"><i class="youtube"></i>Watch live on YouTube</a>
+                            <a href="" type="button" class="btn btn-secondary calendar-btn"><i class="calendar"></i>Add to calendar</a>
+                            <a href="https://twitch.tv/devilsec" target="_blank" role="button" class="btn btn-secondary twitch-btn"><i class="twitch"></i>Watch live on Twitch</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- -->
+            <!-- Event details modal end -->
 
             <div class="content text-left" style="height: 100%;">
                 <h2 class="display-4">Upcoming Events:</h2>

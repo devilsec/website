@@ -1,5 +1,23 @@
 @import "main";
 @import "colours";
+@import "icons";
+@import "brand-icons";
+
+.youtube {
+  @extend .youtube;
+
+  font-size: 16px;
+  color: #fff;
+  padding-right: 10px;
+}
+
+.twitch {
+  @extend .twitch;
+
+  font-size: 16px;
+  color: #fff;
+  padding-right: 10px;
+}
 
 .calendar {
   @extend .calendar;
@@ -19,6 +37,15 @@
   padding-right: 10px;
 }
 
+.podium {
+  height: 24px;
+  padding-right: 10px;
+  vertical-align: bottom;
+  font-size: 24px;
+  display: inline-block;
+  text-align: center;
+}
+
 .schedule-card {
   @extend .btn;
   @extend .card-primary;
@@ -28,6 +55,10 @@
 
   &:hover {
     color: $font-primary;
+  }
+
+  &:focus {
+    box-shadow: none;
   }
 }
 
@@ -68,4 +99,69 @@
 .column-title {
   margin-top: 1em;
   margin-bottom: 0.5em;
+}
+
+// Modal styling:
+
+.modal-dialog {
+  max-width: 800px;
+}
+
+.modal-content {
+  background-color: $background-primary;
+  color: $font-primary;
+  border: 5px solid $primary;
+  border-radius: 1rem;
+
+  > * {
+    border-color: $secondary;
+    border-width: 2px;
+  }
+}
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+}
+
+.modal-body {
+  >.list-group {
+    >.list-group-item {
+      background-color: $background-primary;
+      color: $font-primary;
+      border: none !important;
+    }
+  }
+
+  border-bottom: 3px solid $secondary;
+}
+
+.modal-footer {
+  justify-content: center;
+  border: none;
+
+  >.btn {
+    border: none !important;
+  }
+}
+
+.youtube-btn {
+  background-color: #c00;
+}
+
+.twitch-btn {
+  background-color: #9146ff;
+}
+
+.calendar-btn {
+  background-color: #007fff;
+}
+
+.location-link {
+  text-decoration: underline;
+  color: $font-primary;
+
+  &:hover {
+    color: $font-primary;
+  }
 }
