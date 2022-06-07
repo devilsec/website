@@ -3,3 +3,12 @@
 a {
   text-decoration: none !important;
 }
+
+img.border {
+  border-style: solid;
+  border-radius: 999em;
+  width: 210px;
+  height: 210px;
+  padding: 1px;
+  border: 5px solid yellow;
+}
