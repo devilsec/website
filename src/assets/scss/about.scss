@@ -1,4 +1,5 @@
 @import "brand-icons";
+@import "colours";
 
 a {
   text-decoration: none !important;
@@ -6,9 +7,39 @@ a {
 
 img.border {
   border-style: solid;
-  border-radius: 999em;
-  width: 210px;
-  height: 210px;
-  padding: 1px;
-  border: 5px solid yellow;
+  border-radius: 1999em;
+  border-color: $primary;
+}
+
+img.size {
+  width: 200px;
+  height: 200px;
+}
+
+.linkedin {
+  @extend .linkedin;
+
+  font-size: 30px;
+  color: #fff;
+}
+
+.github {
+  @extend .github;
+
+  font-size: 30px;
+  color: #fff;
+}
+
+.firefox {
+  @extend .firefox;
+
+  font-size: 30px;
+  color: #fff;
+}
+
+.twitter {
+  @extend .twitter;
+
+  font-size: 30px;
+  color: #fff;
 }
