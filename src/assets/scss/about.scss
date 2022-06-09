@@ -5,41 +5,44 @@ a {
   text-decoration: none !important;
 }
 
-img.border {
-  border-style: solid;
-  border-radius: 1999em;
-  border-color: $primary;
+h3 {
+  text-align: center;
+  padding-bottom: 10px;
 }
 
-img.size {
-  width: 200px;
-  height: 200px;
-}
+.profile {
+  div {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
 
-.linkedin {
-  @extend .linkedin;
+  img {
+    border-style: solid;
+    border-radius: 1999em;
+    border-color: $primary !important;
+    size: 1px !important;
+    width: 200px;
+    height: 200px;
+  }
 
-  font-size: 30px;
-  color: #fff;
-}
+  i {
+    font-size: 30px;
+    color: #fff;
 
-.github {
-  @extend .github;
+    .linkedin {
+      @extend .linkedin;
+    }
 
-  font-size: 30px;
-  color: #fff;
-}
+    .github {
+      @extend .github;
+    }
 
-.firefox {
-  @extend .firefox;
+    .firefox {
+      @extend .firefox;
+    }
 
-  font-size: 30px;
-  color: #fff;
-}
-
-.twitter {
-  @extend .twitter;
-
-  font-size: 30px;
-  color: #fff;
+    .twitter {
+      @extend .twitter;
+    }
+  }
 }
