@@ -157,11 +157,11 @@ module.exports={
   },
   plugins: [
     new InjectBodyPlugin({
-      content:  '<main-header></main-header>',
+      content:  '<div class="core"><main-header></main-header>',
       position: 'start'
     }),
     new InjectBodyPlugin({
-      content:  '<main-footer></main-footer>',
+      content:  '<main-footer></main-footer></div>',
       position: 'end'
     })
   ].concat(generatedHTML)

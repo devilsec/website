@@ -5,16 +5,16 @@ export class Footer extends BaseElement{
   static styles = [
     css`
     footer {
-        position: fixed;
-        bottom: 0;
+        position: absolute;
         left: 0;
-        right: 0;
+        bottom: 0;
+        width: 100%;
         display: flex;
         background-color: #262626;
         text-align: center;
         align-items: center;
         justify-content: center;
-        height: 250px;
+        height: 200px;
         flex-wrap: wrap;
     }
     .copyright {
@@ -60,7 +60,7 @@ export class Footer extends BaseElement{
   render(){
     return html`
             <footer>
-                <div class="row" style="padding-top: 20px;">
+                <div class="row" style="padding-top: 15px;">
                     <div class="item"><a class="page-link" href="/">Home</a></div>
                     <div class="item"><a class="page-link" href="/schedule">Upcoming Events</a></div>
                     <div class="item"><a class="page-link" href="/Offerings">Offerings</a></div>
