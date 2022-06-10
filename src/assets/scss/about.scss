@@ -28,21 +28,5 @@ h3 {
   i {
     font-size: 30px;
     color: #fff;
-
-    .linkedin {
-      @extend .linkedin;
-    }
-
-    .github {
-      @extend .github;
-    }
-
-    .firefox {
-      @extend .firefox;
-    }
-
-    .twitter {
-      @extend .twitter;
-    }
   }
 }
