@@ -1,5 +1,32 @@
 @import "brand-icons";
+@import "colours";
 
 a {
   text-decoration: none !important;
+}
+
+h3 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.profile {
+  div {
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  img {
+    border-style: solid;
+    border-radius: 1999em;
+    border-color: $primary !important;
+    size: 1px !important;
+    width: 200px;
+    height: 200px;
+  }
+
+  i {
+    font-size: 30px;
+    color: #fff;
+  }
 }
