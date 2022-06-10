@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  height: 100%;
+  min-height: 100%;
   background-color: $background-primary;
   color: $font-primary;
   text-decoration: none;
@@ -12,6 +12,15 @@ body {
 
 .col-sm-3 {
   min-width: 350px;
+}
+
+.core {
+  min-height: 100%;
+  position: relative;
+
+  & > div {
+    padding-bottom: 200px !important;
+  }
 }
 
 // Mixins:
