@@ -1,76 +1,171 @@
-/* Remove the navbar's default margin-bottom and rounded borders
-Also make the navigation bar sticky  */
-.navbar {
-  margin-bottom: 0;
-  border-radius: 0;
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 999;
+@import "main";
+@import "colours";
+@import "icons";
+@import "brand-icons";
+
+.youtube {
+  @extend .youtube;
+
+  font-size: 16px;
+  color: #fff;
+  padding-right: 10px;
 }
 
-html,
-body {
-  margin: 0;
-  height: 100%;
+.twitch {
+  @extend .twitch;
+
+  font-size: 16px;
+  color: #fff;
+  padding-right: 10px;
 }
 
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content { height: 450px; }
+.calendar {
+  @extend .calendar;
 
-/* Set gray background color and 100% height */
-.sidenav {
-  padding-top: 20px;
-  background-color: #f1f1f1;
-  height: 100%;
+  padding-right: 10px;
 }
 
-/* Set black background color, white text and some padding */
-footer {
-  background-color: #555;
-  color: white;
-  padding: 15px;
+.clock {
+  @extend .clock;
+
+  padding-right: 10px;
 }
 
-#footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+.location {
+  @extend .location;
+
+  padding-right: 10px;
+}
+
+.next-4 {
   width: 100%;
 }
 
-.col {
-  margin-bottom: 4em;
+.podium {
+  height: 24px;
+  padding-right: 10px;
+  vertical-align: bottom;
+  font-size: 24px;
+  display: inline-block;
+  text-align: center;
 }
 
-.display-1 {
-  margin-bottom: 2em;
+.schedule-card {
+  @extend .btn;
+  @extend .card-primary;
+
+  color: $font-primary;
+  margin: 20px;
+
+  &:hover {
+    color: $font-primary;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.row {
+  justify-content: center;
 }
 
 .schedule-divider {
   margin-top: 3em;
   margin-bottom: 3em;
-  border: 1px solid;
+  border: 2px solid #8c1d40;
+  opacity: 1;
+}
+
+.schedule-category {
+  @include border-primary;
+
+  margin: 20px;
+
+  &:hover {
+    border: 5px solid $primary;
+  }
+
+  >.row > .col > .schedule-card {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+.col-lg-4 {
+  min-width: 400px;
 }
 
 .display-4 {
   margin-bottom: 1em;
 }
 
-.column-header {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
 .column-title {
-  margin-bottom: 0.8em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
+// Modal styling:
+
+.modal-dialog {
+  max-width: 800px;
+}
+
+.modal-content {
+  background-color: $background-primary;
+  color: $font-primary;
+  border: 5px solid $primary;
+  border-radius: 1rem;
+
+  > * {
+    border-color: $secondary;
+    border-width: 2px;
   }
-  .row.content { height: auto; }
+}
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+}
+
+.modal-body {
+  >.list-group {
+    >.list-group-item {
+      background-color: $background-primary;
+      color: $font-primary;
+      border: none !important;
+    }
+  }
+
+  border-bottom: 3px solid $secondary;
+}
+
+.modal-footer {
+  justify-content: center;
+  border: none;
+
+  >.btn {
+    border: none !important;
+  }
+}
+
+.youtube-btn {
+  background-color: #c00;
+}
+
+.twitch-btn {
+  background-color: #9146ff;
+}
+
+.calendar-btn {
+  background-color: #007fff;
+}
+
+.location-link {
+  text-decoration: underline;
+  color: $font-primary;
+
+  &:hover {
+    color: $font-primary;
+  }
 }

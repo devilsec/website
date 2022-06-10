@@ -8,3 +8,17 @@ Stylesheet that combines all icons and icon stylesheets used throughout the webs
 @import "~@fortawesome/fontawesome-free/scss/solid";
 
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+// Calendar Icon:
+
+.calendar {
+  @include fa-icon-solid($fa-var-calendar-days);
+}
+
+.location {
+  @include fa-icon-solid($fa-var-location-dot);
+}
+
+.clock {
+  @include fa-icon-solid($fa-var-clock);
+}
