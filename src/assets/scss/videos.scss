@@ -1,3 +1,5 @@
+@import "colours";
+
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
   margin-bottom: 0;
@@ -64,6 +66,26 @@ footer {
 .card {
   margin: 0.5%;
   min-width: fit-content;
+  background-color: $background-secondary;
+  border-color: $primary !important;
+  box-shadow: 0 0 2px 1px $primary;
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  margin: 0.5%;
+  min-width: fit-content;
+  background-color: $background-secondary;
+  border-color: $secondary !important;
+  box-shadow: 0 0 5px 2px $secondary;
+}
+
+.card-header {
+  border-color: $font-primary !important;
+}
+
+.card-footer {
+  border-color: $font-primary !important;
 }
 
 /* video embed params */
