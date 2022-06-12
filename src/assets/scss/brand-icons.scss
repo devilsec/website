@@ -73,6 +73,8 @@ This stylesheet includes all brand icons and relevant stylesheet imports for thi
   color: $secondary;
 }
 
+// Firefox Icon:
+
 .firefox {
   @include fa-icon-brands($fa-var-firefox);
   @extend .fa-2x;
