@@ -31,6 +31,8 @@ on:
 jobs:
   project-setup:
     uses: devilsec/website/.github/workflows/setup-project.yml@main
+    with:
+      write: true
   fix-js:
     if: ${{ inputs.js == true }} || ${{ github.event.review.state == 'approved' }}
     runs-on: ubuntu-latest

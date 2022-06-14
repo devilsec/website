@@ -8,6 +8,11 @@ on:
         default: false
         required: false
         type: boolean
+      write:
+        description: 'Whether write permissions will be required.'
+        default: false
+        required: false
+        type: boolean
       production:
         description: 'Whether this is a production environment or not'
         default: false
@@ -28,18 +33,33 @@ jobs:
     outputs:
       export-dir: ${{ steps.output-dir.outputs.export-dir }}
     steps:
-      - name: Checkout Main Branch
-        if: ${{ inputs.main-branch == true }}
+      - name: Checkout Main Branch no Write
+        if: ${{ inputs.main-branch == true && inputs.write == false }}
         uses: actions/checkout@v3
         with:
           ref: main
           persist-credentials: false
           submodules: recursive
-      - name: Checkout Branch
-        if: ${{ inputs.main-branch != true }}
+      - name: Checkout Main Branch with Write
+        if: ${{ inputs.main-branch == true && inputs.write == true }}
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          token: ${{ secrets.COMMIT_TOKEN }}
+          persist-credentials: true
+          submodules: recursive
+      - name: Checkout Branch no Write
+        if: ${{ inputs.main-branch != true && inputs.write == false }}
         uses: actions/checkout@v3
         with:
           persist-credentials: false
+          submodules: recursive
+      - name: Checkout Branch with Write
+        if: ${{ inputs.main-branch != true && inputs.write == true }}
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.COMMIT_TOKEN }}
+          persist-credentials: true
           submodules: recursive
       - name: Install Node
         uses: actions/setup-node@v3
