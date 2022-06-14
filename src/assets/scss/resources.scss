@@ -1,3 +1,5 @@
+@import "colours";
+
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
   margin-bottom: 0;
@@ -54,15 +56,19 @@ footer {
 .div-highlight {
   border-radius: 5px;
   width: 50%;
-  background: #ffc627;
+  background: $primary;
+}
+
+h3 {
+  color: $secondary;
 }
 
 p {
-  color: black;
+  color: $font-primary;
 }
 
 b {
-  color: black;
+  color: $font-primary;
 }
 
 .center {
