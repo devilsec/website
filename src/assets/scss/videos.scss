@@ -51,14 +51,14 @@ footer {
 
 /* page headings params */
 
-#subheading {
+.subheading {
   padding-top: 2%;
   text-align: left;
   text-indent: 1%;
 }
 
 /* params of divs holding video cards */
-#video-cards {
+.video-cards {
   justify-content: center;
 }
 
@@ -94,7 +94,7 @@ footer {
 }
 
 /* video tag params */
-#tags {
+.tags {
   padding: 0%;
   padding-left: 1%;
   padding-right: 1%;
