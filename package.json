@@ -59,6 +59,7 @@
         "eslint-plugin-react": "^7.29.4",
         "eslint-plugin-react-hooks": "^4.4.0",
         "eslint-webpack-plugin": "^3.1.1",
+        "htmlhint": "^1.1.4",
         "postcss-cli": "^9.1.0",
         "postcss-scss": "^4.0.3",
         "stylelint": "^14.7.1",
