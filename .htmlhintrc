@@ -1,0 +1,30 @@
+{
+    // Doctype and Head:
+    "doctype-first": true,
+    "html-lang-require": true,
+    "title-require": true,
+
+    // Attributes:
+    "attr-no-duplication": true,
+    "attr-no-unnecessary-whitespace": true,
+    "attr-unsafe-chars": true,
+    "attr-value-double-quotes": true,
+    "attr-value-not-empty": true,
+    "attr-whitespace": true,
+
+    // Tags:
+    "tag-pair": true,
+    "tagname-specialchars": true,
+    "src-not-empty": true,
+
+    // ID:
+    "id-class-ad-disabled": true,
+    "id-unique": true,
+
+    // Inline:
+    "inline-script-disabled": true,
+
+    // Formatting:
+    "space-tab-mixed-disabled": true,
+    "spec-char-escape": true
+}
