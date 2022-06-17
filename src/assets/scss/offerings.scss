@@ -1,0 +1,11 @@
+@import "colours";
+
+.card {
+  padding-top: 10px;
+  color: $font-primary;
+  margin: 10px;
+  text-align: center;
+  border-style: solid;
+  border-color: $primary !important;
+  border-radius: 20px;
+}
