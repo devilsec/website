@@ -6,6 +6,10 @@
   margin: 10px;
   text-align: center;
   border-style: solid;
+  border-width: 2px;
   border-color: $primary !important;
-  border-radius: 20px;
+}
+
+.highlight:hover {
+  border-color: $secondary !important;
 }
