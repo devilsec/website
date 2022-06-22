@@ -136,7 +136,7 @@ module.exports = function (i) {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".card{padding-top:10px;color:#fff;margin:10px;text-align:center;border-style:solid;border-color:#ffc627 !important;border-radius:20px}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".card{padding-top:10px;color:#fff;margin:10px;text-align:center;border-style:solid;border-width:2px;border-color:#ffc627 !important}.highlight:hover{border-color:#8c1d46 !important}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
