@@ -28,6 +28,11 @@ speaker_index = retrieve_index_json('speakers').get('speakers')
 category_index = retrieve_index_json('categories').get('categories')
 
 
+# Retrieve Schedule HTML Page:
+
+html = open("./dist/schedule.html", "r").read()
+
+
 # HTML Component Functions:
 
 
@@ -40,13 +45,11 @@ def find_full_div(html, start_pos, last_div_pos):
                                                        div_contents)):
         return next_div_pos
     else:
-        print(True)
         find_full_div(html, start_pos, next_div_pos)
 
 
-def retrieve_div(html, div_id):
-    html = html
-    div_id = div_id
+def retrieve_div(div_id):
+    global html
     div_start = re.search(rf"(<div.*id=\"{div_id}\".*>)", html)
     if div_start is None:
         raise ValueError
@@ -54,8 +57,9 @@ def retrieve_div(html, div_id):
     div_end_pos = find_full_div(html, div_start_pos, div_start_pos)
     if div_end_pos is None:
         raise ValueError
-    div = html[div_start_pos:div_end_pos + 6]
-    return re.sub(r">\s*<", r"><", div)
+    div_end_pos += 6
+    div = html[div_start_pos:div_end_pos]
+    return [re.sub(r">\s*<", r"><", div), div_start_pos, div_end_pos]
 
 
 def complete_div(event, div):
@@ -73,10 +77,55 @@ def complete_div(event, div):
     return div
 
 
+def complete_replace_div(events, id, iter):
+    global html
+    og_div = retrieve_div(id)
+    completed_div = complete_div(events[iter], og_div[0])
+    html.replace(og_div[0], completed_div)
+
+
+def delete_div(div_id):
+    global html
+    div = retrieve_div(div_id)
+    html.replace(div[0], '')
+
+
+def complete_upcoming(events):
+    if len(events) < 4:
+        for i in range(4):
+            if i+1 >= len(events):
+                delete_div(f"upcoming-{i}")
+            else:
+                complete_replace_div(events, f"upcoming-{i}", i)
+    else:
+        for i in range(4):
+            complete_replace_div(events, f"upcoming-{i}", i)
+
+
+def complete_category(category):
+    id = category.get('id')
+    events = []
+    for e in event_index:
+        if e.get('category') == id:
+            events.append(e)
+    category_div = retrieve_div(f"category-{id}")[0]
+    completed_divs = ''
+    for e in events:
+        completed_divs += complete_div(e, category_div)
+    global html
+    html.replace(category_div, completed_divs)
+
+
+def complete_event_categories():
+    for c in category_index:
+        complete_category(c)
+
+
 # Miscellaneous Functions
 
 
 # Retrieves speaker names
+
 def retrieve_speakers(event):
     speaker_name_array = []
     speakers = event.get('speakers')
