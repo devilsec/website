@@ -36,44 +36,44 @@ html = open("./dist/schedule.html", "r").read()
 # HTML Component Functions:
 
 
-def find_full_div(html, start_pos, last_div_pos):
-    next_div_pos = html.find('</div>', last_div_pos)
-    start_div_end_pos = html.find('>', start_pos)
+def find_full_div(start_pos, last_div_pos):
+    global html
+    next_div_pos = html.find('</div>', last_div_pos)+6
+    start_div_end_pos = html.find('>', start_pos)+1
     div_contents = html[start_div_end_pos:next_div_pos]
     if len(re.findall(r"<div",
                       div_contents)) == len(re.findall(r"</div>",
                                                        div_contents)):
         return next_div_pos
     else:
-        find_full_div(html, start_pos, next_div_pos)
+        find_full_div(start_pos, next_div_pos)
 
 
 def retrieve_div(div_id):
     global html
-    div_start = re.search(rf"(<div.*id=\"{div_id}\".*>)", html)
+    div_start = re.search(rf"(<div[^>]*id=\"{div_id}\"[^>]*>)", html)
     if div_start is None:
         raise ValueError
-    div_start_pos = div_start.start(1)
-    div_end_pos = find_full_div(html, div_start_pos, div_start_pos)
+    div_start_pos = html.find(div_start.group(1))
+    div_end_pos = find_full_div(div_start_pos, div_start_pos)
     if div_end_pos is None:
         raise ValueError
-    div_end_pos += 6
     div = html[div_start_pos:div_end_pos]
     return [re.sub(r">\s*<", r"><", div), div_start_pos, div_end_pos]
 
 
 def complete_div(event, div):
     # Parse Data
-    div.replace('[Name]', event.get('name'))
+    div = div.replace("[Name]", event.get("name"))
     parsed_date = parse_date(event)
-    div.replace('[Date]', parsed_date.strftime('%d %b %Y UTC%z'))
-    div.replace('[Time]', parsed_date.strftime('%H:%m UTC%z'))
-    div.replace('[Duration]', event.get('duration'))
-    div.replace('[Location]', event.get('location'))
-    div.replace('{{ Location URL }}', event.get('locationURL'))
+    div = div.replace("[Date]", parsed_date.strftime("%d %b %Y UTC%z"))
+    div = div.replace("[Time]", parsed_date.strftime("%H:%m UTC%z"))
+    div = div.replace("[Duration]", event.get("duration"))
+    div = div.replace("[Location]", event.get("location"))
+    div = div.replace("{{ Location URL }}", event.get("locationURL"))
     re.sub(r"[Description [A-Za-z \.]*]", rf"{event.get('description')}", div)
-    div.replace('{{ ICS URL }}', event.get('icsURL'))
-    div.replace('[Speakers]', retrieve_speakers(event))
+    div = div.replace("{{ ICS URL }}", event.get("icsURL"))
+    div = div.replace("[Speakers]", str(retrieve_speakers(event)))
     return div
 
 
@@ -81,13 +81,13 @@ def complete_replace_div(events, id, iter):
     global html
     og_div = retrieve_div(id)
     completed_div = complete_div(events[iter], og_div[0])
-    html.replace(og_div[0], completed_div)
+    html = html.replace(og_div[0], completed_div)
 
 
 def delete_div(div_id):
     global html
     div = retrieve_div(div_id)
-    html.replace(div[0], '')
+    html = html.replace(div[0], '')
 
 
 def complete_upcoming(events):
@@ -113,7 +113,7 @@ def complete_category(category):
     for e in events:
         completed_divs += complete_div(e, category_div)
     global html
-    html.replace(category_div, completed_divs)
+    html = html.replace(category_div, completed_divs)
 
 
 def complete_event_categories():
@@ -158,3 +158,13 @@ def parse_date(event):
     if timestamp.group(6) is None:
         iso_date += '+00:00'
     return datetime.strptime(iso_date, format_string+'%z')
+
+
+def schedule_generation():
+    complete_upcoming(event_index)
+    complete_event_categories()
+    open("./dist/schedule.html", "w").write(html)
+
+
+if __name__ == "__main__":
+    schedule_generation()
