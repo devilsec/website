@@ -71,7 +71,8 @@ def complete_div(event, div):
     div = div.replace("[Duration]", event.get("duration"))
     div = div.replace("[Location]", event.get("location"))
     div = div.replace("{{ Location URL }}", event.get("locationURL"))
-    re.sub(r"[Description [A-Za-z \.]*]", rf"{event.get('description')}", div)
+    div = re.sub(r"\[Description [^\]]*\]",
+                 rf"{event.get('description')}", div)
     div = div.replace("{{ ICS URL }}", event.get("icsURL"))
     div = div.replace("[Speakers]", str(retrieve_speakers(event)))
     return div
