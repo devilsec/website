@@ -17,6 +17,12 @@ eventModal.addEventListener('show.bs.modal', function(event){
   var description=button.getAttribute('data-bs-desc');
   var icsURL=button.getAttribute('data-bs-ics-url');
 
+  // Handle Speakers:
+  speakers = JSON.parse(speakers.replaceAll('\'', '"'));
+  if(speakers.length == 0){
+    speakers.push('TBA');
+  }
+
   // Update the contents of the modal:
   var modalTitle=eventModal.querySelector('.modal-title');
   modalTitle.textContent=name;
@@ -29,7 +35,7 @@ eventModal.addEventListener('show.bs.modal', function(event){
   var modalLocURL=eventModal.querySelector('.location-link');
   modalLocURL.href=locURL;
   var modalSpeakers=eventModal.querySelector('.modal-speakers');
-  modalSpeakers.textContent=speakers;
+  modalSpeakers.textContent=speakers.join(', ');
   var modalDesc=eventModal.querySelector('.modal-description');
   modalDesc.textContent=description;
   var modalICS=eventModal.querySelector('.calendar-btn');
