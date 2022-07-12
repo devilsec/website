@@ -56,6 +56,9 @@
 
   color: $font-primary;
   margin: 20px;
+  min-width: -moz-available;
+  min-width: -webkit-fill-available;
+  min-width: fill-available;
 
   &:hover {
     color: $font-primary;
