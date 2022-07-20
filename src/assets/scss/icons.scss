@@ -22,3 +22,7 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 .clock {
   @include fa-icon-solid($fa-var-clock);
 }
+
+.stopwatch {
+  @include fa-icon-solid($fa-var-stopwatch);
+}

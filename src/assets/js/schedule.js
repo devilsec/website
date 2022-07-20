@@ -11,6 +11,7 @@ eventModal.addEventListener('show.bs.modal', function(event){
   var name=button.getAttribute('data-bs-name');
   var date=button.getAttribute('data-bs-date');
   var time=button.getAttribute('data-bs-time');
+  var duration=button.getAttribute('data-bs-duration');
   var loc=button.getAttribute('data-bs-loc');
   var locURL=button.getAttribute('data-bs-loc-url');
   var speakers=button.getAttribute('data-bs-speakers');
@@ -30,6 +31,8 @@ eventModal.addEventListener('show.bs.modal', function(event){
   modalDate.textContent=date;
   var modalTime=eventModal.querySelector('.modal-time');
   modalTime.textContent=time;
+  var modalDuration=eventModal.querySelector('.modal-duration');
+  modalDuration.textContent=duration;
   var modalLoc=eventModal.querySelector('.modal-loc');
   modalLoc.textContent=loc;
   var modalLocURL=eventModal.querySelector('.location-link');
