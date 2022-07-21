@@ -41,6 +41,7 @@ body {
   @extend .card;
   @include border-primary;
 
+  color: $font-primary;
   background-color: $background-secondary;
 
   >.card-title {
