@@ -31,6 +31,12 @@
   padding-right: 10px;
 }
 
+.stopwatch {
+  @extend .stopwatch;
+
+  padding-right: 10px;
+}
+
 .location {
   @extend .location;
 
@@ -56,6 +62,9 @@
 
   color: $font-primary;
   margin: 20px;
+  min-width: -moz-available;
+  min-width: -webkit-fill-available;
+  min-width: fill-available;
 
   &:hover {
     color: $font-primary;
@@ -63,6 +72,10 @@
 
   &:focus {
     box-shadow: none;
+  }
+
+  >.card-text {
+    font-size: larger;
   }
 }
 

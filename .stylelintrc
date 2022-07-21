@@ -6,6 +6,7 @@
     ],
     "rules": {
         "function-no-unknown": null,
-        "scss/at-extend-no-missing-placeholder": null
+        "scss/at-extend-no-missing-placeholder": null,
+        "value-no-vendor-prefix": null
     }
 }

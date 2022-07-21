@@ -11,11 +11,18 @@ eventModal.addEventListener('show.bs.modal', function(event){
   var name=button.getAttribute('data-bs-name');
   var date=button.getAttribute('data-bs-date');
   var time=button.getAttribute('data-bs-time');
+  var duration=button.getAttribute('data-bs-duration');
   var loc=button.getAttribute('data-bs-loc');
   var locURL=button.getAttribute('data-bs-loc-url');
   var speakers=button.getAttribute('data-bs-speakers');
   var description=button.getAttribute('data-bs-desc');
   var icsURL=button.getAttribute('data-bs-ics-url');
+
+  // Handle Speakers:
+  speakers = JSON.parse(speakers.replaceAll('\'', '"'));
+  if(speakers.length == 0){
+    speakers.push('TBA');
+  }
 
   // Update the contents of the modal:
   var modalTitle=eventModal.querySelector('.modal-title');
@@ -24,12 +31,14 @@ eventModal.addEventListener('show.bs.modal', function(event){
   modalDate.textContent=date;
   var modalTime=eventModal.querySelector('.modal-time');
   modalTime.textContent=time;
+  var modalDuration=eventModal.querySelector('.modal-duration');
+  modalDuration.textContent=duration;
   var modalLoc=eventModal.querySelector('.modal-loc');
   modalLoc.textContent=loc;
   var modalLocURL=eventModal.querySelector('.location-link');
   modalLocURL.href=locURL;
   var modalSpeakers=eventModal.querySelector('.modal-speakers');
-  modalSpeakers.textContent=speakers;
+  modalSpeakers.textContent=speakers.join(', ');
   var modalDesc=eventModal.querySelector('.modal-description');
   modalDesc.textContent=description;
   var modalICS=eventModal.querySelector('.calendar-btn');

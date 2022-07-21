@@ -66,8 +66,12 @@ def complete_div(event, div):
     # Parse Data
     div = div.replace("[Name]", event.get("name"))
     parsed_date = parse_date(event)
-    div = div.replace("[Date]", parsed_date.strftime("%d %b %Y UTC%z"))
-    div = div.replace("[Time]", parsed_date.strftime("%H:%m UTC%z"))
+    if parsed_date.strftime("%z") == '-0700':
+        div = div.replace("[Date]", parsed_date.strftime("%d %b %Y MST"))
+        div = div.replace("[Time]", parsed_date.strftime("%H:%M MST"))
+    else:
+        div = div.replace("[Date]", parsed_date.strftime("%d %b %Y UTC%z"))
+        div = div.replace("[Time]", parsed_date.strftime("%H:%M UTC%z"))
     div = div.replace("[Duration]", event.get("duration"))
     div = div.replace("[Location]", event.get("location"))
     div = div.replace("{{ Location URL }}", event.get("locationURL"))
