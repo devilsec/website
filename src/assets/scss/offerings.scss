@@ -1,15 +1,19 @@
-@import "colours";
+@import "~bootstrap/scss/mixins/grid";
+@import "main";
 
 .card {
+  @extend .card-primary;
+  @extend .bg-dark;
+  @extend .col-sm-3;
+  @extend .col-md-3;
+  @extend .col-lg-3;
+
   padding-top: 10px;
-  color: $font-primary;
   margin: 10px;
   text-align: center;
-  border-style: solid;
   border-width: 2px;
-  border-color: $primary !important;
-}
 
-.highlight:hover {
-  border-color: $secondary !important;
+  &:hover {
+    border-width: 2px;
+  }
 }
