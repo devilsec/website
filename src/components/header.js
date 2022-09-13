@@ -29,7 +29,7 @@ export class Header extends BaseElement{
         padding-bottom: 30px;
       }
       .navbar-item {
-        font-size: 1.5em;
+        font-size: 1.25em;
         margin-left: 75px;
         margin-right: 75px;
       }
