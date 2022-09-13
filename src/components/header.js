@@ -9,102 +9,62 @@ export class Header extends BaseElement{
         padding: 0;
         height: 75px;
         margin-bottom: 50px;
+        background-color: #262626;
+        width: 100%;
+        height: 100%;
       }
-      .navbar-container {
-        margin-left: 25px;
-        margin-top: 25px;
-        border: 2px solid #ffc267;
-        width: 50%;
-        background: #000;
-        display: flex;
+      .top-nav {
+        margin-left: 75px;
         flex-wrap: wrap;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-      }
-      .navbar-heading {
         display: flex;
+        font-size: 1.5em;
+      }
+      .navbar {
+        flex-basis: 100%;
+        margin-top: 10px;
+        padding-top: 20px;
         flex-wrap: wrap;
-      }
-      .navbar-pages {
         display: flex;
-        flex: 1 1 0;
-        height: 75px;
+        margin-bottom: 10px;
+        padding-bottom: 30px;
       }
       .navbar-item {
-        border: 1px solid #ffc267;
-        margin-left: 10px;
+        font-size: 1.5em;
+        margin-left: 75px;
+        margin-right: 75px;
       }
-      .navbar-page {
-        flex: 1 1 0;
-        border: 2px solid #5b5b5b;
+      .navbar-link {
+        color: #fff !important;
         text-decoration: none;
-        &:hover {
-            border: 2px solid #ffc267;
-        }
       }
-      .navbar-page-link {
+      .navbar-link:hover {
+        border-bottom: 3px solid #ffc627;
+      }
+      .title {
+        margin-bottom: 5px;
+        margin-top: 20px;
+      }
+      .title-link {
+        color: #fff !important;
         text-decoration: none;
-        color: #fff;
+        border-bottom: 3px solid #8c1d40;
       }
-      .navbar-logo {
-        border: none;
-        width: 75px;
-      }
-      .navbar-title {
-        width: 200px;
+      .devilsec-logo {
       }
       `
   ];
   render(){
     return html`
-            <div class="header-container">
-                <div class="navbar-container">
-                    <div class="navbar-heading">
-                        <div class="navbar-item navbar-logo">
-                            <img src="src/assets/img/DevilSecLogo.png"/>
-                        </div>
-                        <div class="navbar-item navbar-title">
-                            <h2>DevilSec</h2>
-                        </div>
-                    </div>
-                    <div class="navbar-pages">
-                        <div class="navbar-page">
-                            <a class="navbar-page-link" href="/schedule">
-                                <h3 class="navbar-page-title">Schedule<h3/>
-                            </a>
-                        </div>
-                        <div class="navbar-page">
-                            <a class="navbar-page-link" href="/schedule">
-                                <h3 class="navbar-page-title">Schedule<h3/>
-                            </a>
-                        </div>
-                        <div class="navbar-page">
-                            <a class="navbar-page-link" href="/schedule">
-                                <h3 class="navbar-page-title">Schedule<h3/>
-                            </a>
-                        </div>
-                        <div class="navbar-page">
-                            <a class="navbar-page-link" href="/schedule">
-                                <h3 class="navbar-page-title">Schedule<h3/>
-                            </a>
-                        </div>
-                        <div class="navbar-page">
-                            <a class="navbar-page-link" href="/schedule">
-                                <h3 class="navbar-page-title">Schedule<h3/>
-                            </a>
-                        </div>
-                        <div class="navbar-page">
-                            <a class="navbar-page-link" href="/schedule">
-                                <h3 class="navbar-page-title">Schedule<h3/>
-                            </a>
-                        </div>
-                        <div class="navbar-page">
-                            <a class="navbar-page-link" href="/schedule">
-                                <h3 class="navbar-page-title">Schedule<h3/>
-                            </a>
-                        </div>
-                    </div>
+            <div class="header-container container">
+                <div class="row top-nav">
+                    <a class="title-link" href="/"><h1 class="col title">DevilSec</h1></a>
+                </div>
+                <div class="row navbar">
+                    <div class="col navbar-item"><a class="navbar-link" href="/schedule.html">Schedule</a></div>
+                    <div class="col navbar-item"><a class="navbar-link" href="/resources.html">Resources</a></div>
+                    <div class="col navbar-item"><a class="navbar-link" href="/videos.html">Videos</a></div>
+                    <div class="col navbar-item"><a class="navbar-link" href="/connect.html">Connect</a></div>
+                    <div class="col navbar-item"><a class="navbar-link" href="/about.html">About</a></div>
                 </div>
             </div>
         `;
