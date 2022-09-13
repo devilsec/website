@@ -8,6 +8,7 @@ export class Header extends BaseElement{
         margin: 0;
         padding: 0;
         height: 75px;
+        margin-bottom: 50px;
       }
       .navbar-container {
         margin-left: 25px;
