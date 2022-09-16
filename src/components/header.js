@@ -18,6 +18,7 @@ export class Header extends BaseElement{
         flex-wrap: wrap;
         display: flex;
         font-size: 1.5em;
+        justify-content: center;
       }
       .navbar {
         flex-basis: 100%;
@@ -27,6 +28,7 @@ export class Header extends BaseElement{
         display: flex;
         margin-bottom: 10px;
         padding-bottom: 30px;
+        justify-content: center;
       }
       .navbar-item {
         font-size: 1.25em;
