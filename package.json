@@ -21,6 +21,7 @@
         "lint-fix": "npm-run-all fix-js fix-css",
         "val-html": "htmlhint **/*.html",
         "gen-sched": "python src/schedulegen.py",
+        "gen-vids": "python src/videosgen.py",
         "build": "if-env NODE_ENV=production && npm run build:prod || npm run build:dev",
         "build:dev": "npm run lint-fix && webpack --config webpack.prod.js && npm run gen-sched",
         "build:prod": "webpack --config webpack.prod.js && npm run gen-sched",
