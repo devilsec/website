@@ -60,6 +60,7 @@
   @extend .btn;
   @extend .card-primary;
 
+  display: block;
   margin: 20px;
   min-width: -moz-available;
   min-width: -webkit-fill-available;
