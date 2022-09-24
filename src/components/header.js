@@ -34,8 +34,8 @@ export class Header extends BaseElement{
       }
       .navbar-item {
         font-size: 1.25em;
-        margin-left: 75px;
-        margin-right: 75px;
+        margin-left: auto;
+        margin-right: auto;
       }
       .navbar-link {
         color: #fff !important;
