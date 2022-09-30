@@ -34,12 +34,12 @@ def find_full_div(start_pos, last_div_pos):
     next_div_pos = html.find('</div>', last_div_pos)+6
     start_div_end_pos = html.find('>', start_pos)+1
     div_contents = html[start_div_end_pos:next_div_pos]
-    if len(re.findall(r"<div",
-                      div_contents)) == len(re.findall(r"</div>",
-                                                       div_contents)):
+    re_div_findall = len(re.findall(r"<div", div_contents))
+    re_slashdiv_findall = len(re.findall(r"</div>", div_contents))
+    if re_div_findall == re_slashdiv_findall:
         return next_div_pos
     else:
-        find_full_div(start_pos, next_div_pos)
+        return find_full_div(start_pos, next_div_pos)
 
 def retrieve_div(div_id):
     global html
@@ -118,4 +118,24 @@ def parse_date(video):
     #     format_string += ':%f'
     # if timestamp.group(6) is None:
     #     iso_date += '+00:00'
-    return datetime.strptime(video, format_string)
+    return datetime.strptime(video.get('date'), format_string)
+
+
+def complete_videos():
+    video_div = retrieve_div("videos")[0]
+    completed_divs = ''
+    for video in videos_index:
+        completed_divs += complete_div(video, video_div)
+    global html
+    html = html.replace(video_div, completed_divs)
+
+
+def videos_generation():
+    # complete_upcoming(event_index)
+    # complete_event_categories()
+    complete_videos()
+    open("./dist/videos.html", "w").write(html)
+
+
+if __name__ == "__main__":
+    videos_generation()
