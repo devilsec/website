@@ -69,6 +69,7 @@ export class Header extends BaseElement{
                 <div class="row navbar">
                     <div class="col navbar-item"><a class="navbar-link" href="/schedule.html">Schedule</a></div>
                     <div class="col navbar-item"><a class="navbar-link" href="/resources.html">Resources</a></div>
+                    <div class="col navbar-item"><a class="navbar-link" href="/offerings.html">Offerings</a></div>
                     <div class="col navbar-item"><a class="navbar-link" href="/videos.html">Videos</a></div>
                     <div class="col navbar-item"><a class="navbar-link" href="/connect.html">Connect</a></div>
                     <div class="col navbar-item"><a class="navbar-link" href="/about.html">About</a></div>
