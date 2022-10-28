@@ -12,6 +12,7 @@ export class Header extends BaseElement{
         background-color: #262626;
         width: 100%;
         height: 100%;
+        border-bottom: 3px solid #8c1d46;
       }
       .top-nav {
         margin-left: 75px;

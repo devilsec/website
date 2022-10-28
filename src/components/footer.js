@@ -16,6 +16,7 @@ export class Footer extends BaseElement{
         justify-content: center;
         height: 200px;
         flex-wrap: wrap;
+        border-top: 3px solid #8c1d46;
     }
     .copyright {
         flex-basis: 100%;
