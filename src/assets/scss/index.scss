@@ -1,62 +1,43 @@
-html,
-body {
-  margin: 0;
-  height: 100%;
-  color: white;
-  background-color: #202020;
+@import "main";
+@import "colours";
+@import "icons";
+@import "brand-icons";
+
+.container-fluid > * {
+  margin-bottom: 3em;
 }
 
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content { height: 450px; }
+.card {
+  @include border-primary;
 
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
-  .sidenav {
-    height: auto;
-    padding: 15px;
+  background-color: $background-secondary;
+  border-color: $secondary;
+
+  > a {
+    text-decoration: none;
+    color: $font-primary;
   }
-  .row.content { height: auto; }
 }
 
-.style2 {
-  margin: 0 auto;
-  color: #ffc627;
+.discord {
+  @extend .discord;
+  @extend .fa-4x;
+
+  color: $primary;
 }
 
-.container {
-  position: relative;
-  width: 100%;
+#main-row {
+  padding-right: 3em;
 }
 
-.boxes {
-  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
-  color: white;
-  margin: 20px;
-  box-shadow: 0 0 10px 5px #ffc627;
-  transition: all 0.4s ease;
+#schedule-link {
+  > h3 {
+    text-decoration: underline solid $primary 2px;
+  }
 }
 
-.boxes:hover {
-  border-radius: 1% 1% 1% 1% / 1% 1% 1% 1%;
-  box-shadow: 0 0 20px 20px #8c1d40;
-}
-
-.grid2x2 {
-  min-height: 100%;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.grid2x2 > div {
-  height: 300px;
-  display: flex;
-  flex-basis: calc(50% - 40px);
-  justify-content: center;
-  flex-direction: column;
-}
-
-.grid2x2 > div > div {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+#twitter {
+  background-color: black;
+  padding-left: 0;
+  padding-right: 0;
 }
