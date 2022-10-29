@@ -171,5 +171,18 @@ def schedule_generation():
     open("./dist/schedule.html", "w").write(html)
 
 
+def home_generation():
+    index_html = open("./dist/index.html", "r").read()
+    event = event_index[0]
+    date = parse_date(event)
+    index_html.replace("[TITLE]", event.get('name'))
+    index_html.replace("[DATE]", date.strftime("%d %b %Y UTC%z"))
+    index_html.replace("[TIME]", date.strftime("%H:%M"))
+    index_html.replace("[DURATION]", event.get('duration'))
+    index_html.replace("[LOCATION]", event.get('location'))
+    open("./dist/index.html", "w").write(index_html)
+
+
 if __name__ == "__main__":
+    home_generation()
     schedule_generation()
