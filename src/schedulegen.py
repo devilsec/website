@@ -176,7 +176,7 @@ def home_generation():
     event = event_index[0]
     date = parse_date(event)
     index_html = index_html.replace("[TITLE]", event.get('name'))
-    index_html = index_html.replace("[DATE]", date.strftime("%d %b %Y UTC%z"))
+    index_html = index_html.replace("[DATE]", date.strftime("%d %b %Y"))
     index_html = index_html.replace("[TIME]", date.strftime("%H:%M"))
     index_html = index_html.replace("[DURATION]", event.get('duration'))
     index_html = index_html.replace("[LOCATION]", event.get('location'))
