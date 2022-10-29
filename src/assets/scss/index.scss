@@ -12,6 +12,9 @@
 
   background-color: $background-secondary;
   border-color: $secondary;
+  margin-bottom: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 
   > a {
     text-decoration: none;
@@ -24,6 +27,36 @@
   @extend .fa-4x;
 
   color: $primary;
+}
+
+.col-md-3 > .row > .card {
+  margin-bottom: 1em;
+
+  &:hover {
+    border-color: $primary;
+  }
+}
+
+.offering-card {
+  display: flex;
+  justify-content: center;
+  flex-basis: 20%;
+  margin: 1em auto 0;
+
+  &:hover {
+    border-color: $primary;
+  }
+}
+
+.soc-icons {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-basis: 25%;
+
+  > i {
+    color: $primary;
+  }
 }
 
 #main-row {
@@ -52,6 +85,20 @@
 
 #twitter {
   background-color: black;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
+}
+
+#event-card {
+  border-color: $primary;
+}
+
+#offerings {
+  > h2 {
+    text-decoration: underline solid $primary 2px;
+  }
+
+  > .row {
+    display: flex;
+    flex-basis: 100%;
+  }
 }
